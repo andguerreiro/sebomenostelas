@@ -9,7 +9,7 @@ Se quiser doar seus livros, eu coleto gratuitamente em São Paulo, SP. Basta age
 
 Caso prefira vender seus livros, eu pago 20% do menor preço da internet. Envie-me uma foto deles empilhados pelo [WhatsApp](https://wa.me/5511981350566), com título e autor visíveis, e eu respondo quanto pago em cada um.
 
-Não utilizo mais Facebook, Twitter, Instagram, TikTok e similares. O atendimento é 100% por mensagem de WhatsApp³.
+Não utilizo mais Facebook, Twitter, Instagram, TikTok e similares. O atendimento é 100% por mensagem de [WhatsApp](https://wa.me/5511981350566).
 
 Boas leituras!  
 [Andrews Guerreiro](https://github.com/andguerreiro), livreiro
