@@ -8,7 +8,7 @@ Se quiser doar seus livros, eu coleto gratuitamente em São Paulo, SP. Basta age
 
 Caso prefira vender seus livros, eu pago 20% do menor preço da internet. Envie-me uma foto deles empilhados pelo [WhatsApp](https://wa.me/5511981350566), com título e autor visíveis, e eu respondo quanto pago em cada um.
 
-A única rede social que uso raramente é o [Bluesky](https://bsky.app/profile/sebomelivro.bsky.social). Se preferir, pode entrar em contato por lá.
+A única rede social que uso é o [Bluesky](https://bsky.app/profile/sebomelivro.bsky.social). Se preferir, pode entrar em contato por lá.
 
 Aproveite para ler minhas [opiniões](https://andguerreiro.github.io/blog/) e conhecer meus buscadores: [Livrany](https://andguerreiro.github.io/livrany/) e [Bibliany](https://andguerreiro.github.io/bibliany/).
 
