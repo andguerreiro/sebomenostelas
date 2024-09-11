@@ -1,4 +1,4 @@
-# Sebomelivro
+# Sebomelivros
 
 Desde outubro de 2017, eu vendo, retiro doações e compro livros usados para revenda.
 
