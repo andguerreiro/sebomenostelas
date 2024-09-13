@@ -6,7 +6,7 @@ As vendas são via [Estante Virtual](https://estantevirtual.com.br/sebos-e-livre
 
 Se quiser doar seus livros, eu coleto gratuitamente em São Paulo, SP. Basta agendar pelo [WhatsApp](https://wa.me/5511981350566). Enciclopédias, dicionários, livros didáticos e técnicos desatualizados não são coletados.
 
-Caso prefira vender seus livros, eu pago 20% do menor preço da internet. Envie-me uma foto deles empilhados pelo [WhatsApp](https://wa.me/5511981350566), com título e autor visíveis, e eu respondo quanto pago em cada um.
+Caso prefira vender seus livros, eu pago 20% do menor preço na internet. Envie-me uma foto deles empilhados pelo [WhatsApp](https://wa.me/5511981350566), com título e autor visíveis, e eu respondo quanto pago em cada um.
 
 Não utilizo mais nenhuma rede social. Se quiser entrar em contato envie mensagem pelo [WhatsApp](https://wa.me/5511981350566).
 
