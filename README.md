@@ -12,7 +12,7 @@ Caso prefira vender seus livros, eu pago 20% do menor preço deles na internet. 
 
 Não utilizo mais nenhuma rede social. Se quiser entrar em contato envie mensagem pelo [WhatsApp](https://wa.me/5511981350566).
 
-Aproveite para ler minhas [opiniões](https://andguerreiro.github.io/blog/) e conhecer meus buscadores: [Livrany](https://andguerreiro.github.io/livrany/) e [Bibliany](https://andguerreiro.github.io/bibliany/).
+Aproveite para ler minhas [reflexões](https://andguerreiro.github.io/blog/) e conhecer meus buscadores: [Livrany](https://andguerreiro.github.io/livrany/) e [Bibliany](https://andguerreiro.github.io/bibliany/).
 
 Boas leituras!  
 [Andrews Guerreiro](https://github.com/andguerreiro), livreiro
