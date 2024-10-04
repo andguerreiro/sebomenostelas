@@ -2,7 +2,7 @@
 
 Desde outubro de 2017, eu vendo, retiro doações e compro livros usados para revenda.
 
-As vendas dos livros de ficção são via [Estante Virtual](https://estantevirtual.com.br/sebos-e-livreiros/sebomelivro). Todos os outros livros eu vendo pelo [Mercado Shops](https://sebomelivro.mercadoshops.com.br/) e [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276).
+As vendas dos livros de ficção são via [Estante Virtual](https://estantevirtual.com.br/sebos-e-livreiros/sebomelivro). Não ficção, infantojuvenis e quadrinhos eu vendo pelo [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276).
 
 Os pedidos são entregues pelos Correios em todo o Brasil ou, sem custo, no bairro da Mooca, em São Paulo.
 
