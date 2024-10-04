@@ -16,3 +16,5 @@ Aproveite para ler meu [blog](https://andguerreiro.github.io/blog/) e conhecer m
 
 Boas leituras!  
 [Andrews Guerreiro](https://github.com/andguerreiro), livreiro
+
+![Logo](logo.png)
