@@ -1,6 +1,6 @@
 # Sebo Menos Telas
 
-Desde outubro de 2017, eu vendo, retiro doações e compro livros usados para revenda.
+Desde outubro de 2017, eu vendo, retiro doações e compro livros usados para revenda. Os preços de qualquer livro são de 6 a 8 reais.
 
 Os livros de ficção são vendidos via [Estante Virtual](https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas), enquanto os de não ficção, infantojuvenis e quadrinhos são vendidos pelo [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276).
 
