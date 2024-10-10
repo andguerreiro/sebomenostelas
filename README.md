@@ -10,7 +10,7 @@ Se quiser doar seus livros, eu coleto gratuitamente em São Paulo, SP. Basta age
 
 Caso prefira vender seus livros, eu pago 20% do menor preço deles na internet. Envie-me uma foto deles empilhados pelo [WhatsApp](https://wa.me/5511981350566), com título e autor visíveis, e eu respondo quanto pago em cada um.
 
-Não utilizo mais nenhuma rede social. Tenho uma conta no [Instagram](https://instagram.com/sebomenostelas) mas raramente uso. Se quiser entrar em contato, envie mensagem pelo [WhatsApp](https://wa.me/5511981350566).
+Não utilizo mais nenhuma rede social. Se quiser entrar em contato, envie mensagem pelo [WhatsApp](https://wa.me/5511981350566).
 
 Aproveite para ler meu [blog](https://andguerreiro.github.io/blog/) e conhecer meus buscadores: [Livrany](https://andguerreiro.github.io/livrany/) e [Bibliany](https://andguerreiro.github.io/bibliany/).
 
