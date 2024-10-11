@@ -1,6 +1,6 @@
 # Sebo Menos Telas
 
-Desde outubro de 2017, eu vendo, retiro doações e compro livros usados para revenda. O objetivo é promover a leitura de livros impressos e diminuir o uso de telas.
+Desde outubro de 2017, eu vendo, recebo doações e compro livros usados para revenda. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas, oferecendo preços o mais acessíveis possível.
 
 Os livros de ficção são vendidos por 6 reais na [Estante Virtual](https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas), enquanto os de não ficção, infantojuvenis e quadrinhos são vendidos por 8 reais no [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276). Esses são os preços mínimos de cada marketplace.
 
