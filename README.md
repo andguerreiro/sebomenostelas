@@ -1,6 +1,6 @@
 # Sebo Menos Telas
 
-Desde outubro de 2017, eu vendo, recebo doações e compro livros usados para revenda. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas.
+Desde outubro de 2017, eu vendo, coleto doações e compro livros usados para revenda. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas.
 
 Os livros de ficção são vendidos na [Estante Virtual](https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas), enquanto os de não ficção, infantojuvenis e quadrinhos são vendidos no [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276).
 
