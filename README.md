@@ -15,6 +15,6 @@ Não utilizo mais nenhuma rede social. Se quiser entrar em contato, envie mensag
 Aproveite para ler meu [blog](https://andguerreiro.github.io/blog/) e conhecer meus buscadores: [Livrany](https://andguerreiro.github.io/livrany/) e [Bibliany](https://andguerreiro.github.io/bibliany/).
 
 Boas leituras!  
-[Andrews Guerreiro](https://github.com/andguerreiro), livreiro
+[Andrews Guerreiro](https://github.com/andguerreiro)
 
 ![Logo](logo.png)
