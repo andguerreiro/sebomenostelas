@@ -6,7 +6,7 @@ Os livros de ficção são vendidos na [Estante Virtual](https://www.estantevirt
 
 Os pedidos são entregues pelos Correios em todo o Brasil ou, sem custo, no bairro da Mooca, em São Paulo.
 
-Se quiser doar seus livros, eu coleto gratuitamente em São Paulo, SP. Basta agendar pelo [WhatsApp](https://wa.me/5511981350566). Enciclopédias, dicionários, livros didáticos e técnicos desatualizados não são coletados.
+Se quiser doar seus livros, eu coleto gratuitamente e no mesmo dia em São Paulo, SP. Basta agendar pelo [WhatsApp](https://wa.me/5511981350566). Enciclopédias, dicionários, livros didáticos e técnicos desatualizados não são coletados.
 
 Quanto a compra de livros para revenda, eu compro apenas de bazares beneficentes e ONGs.
 
