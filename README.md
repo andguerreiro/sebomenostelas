@@ -2,7 +2,7 @@
 
 Desde outubro de 2017, eu vendo, coleto doações e compro livros usados para revenda. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas.
 
-Os livros são vendidos no [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276).
+Os livros são vendidos via [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276).
 
 Os pedidos são entregues pelos Correios em todo o Brasil ou, sem custo, no bairro da Mooca, em São Paulo.
 
