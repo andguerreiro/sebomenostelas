@@ -10,7 +10,7 @@ Se quiser doar seus livros, eu coleto gratuitamente e no mesmo dia em São Paulo
 
 Quanto a compra de livros para revenda, eu compro apenas de bazares beneficentes e ONGs.
 
-Não utilizo mais nenhuma rede social. Se quiser entrar em contato, envie mensagem pelo [WhatsApp](https://wa.me/5511981350566).
+Não utilizo mais nenhuma rede social. Se quiser entrar em contato, envie mensagem pelo [WhatsApp](https://wa.me/5511981350566) ou [e-mail](mailto:sebomenostelas@gmail.com).
 
 Aproveite conhecer meus buscadores: [Livrany](https://andguerreiro.github.io/livrany/) e [Bibliany](https://andguerreiro.github.io/bibliany/).
 
