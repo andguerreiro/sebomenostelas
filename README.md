@@ -1,6 +1,6 @@
 # Sebo Menos Telas
 
-Desde outubro de 2017, eu vendo, coleto doações e compro livros usados para revenda. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas.
+Desde outubro de 2017, eu vendo, coleto doações e compro livros usados para revenda. Apenas pela internet, sem loja física. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas.
 
 Os livros são vendidos via [Estante Virtual](https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas) ou [WhatsApp](https://wa.me/5511981350566).
 
