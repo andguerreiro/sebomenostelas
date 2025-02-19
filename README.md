@@ -12,7 +12,7 @@ Quanto a compra de livros para revenda, eu compro apenas de bazares beneficentes
 
 Não utilizo mais nenhuma rede social. Se quiser entrar em contato, envie mensagem pelo [WhatsApp](https://wa.me/5511981350566) ou [e-mail](mailto:sebomenostelas@gmail.com).
 
-Aproveite conhecer meus buscadores: [Livrany](https://andguerreiro.github.io/livrany/) e [Bibliany](https://andguerreiro.github.io/bibliany/).
+Aproveite conhecer meus buscadores: [Livrany](https://andguerreiro.github.io/livrany/), [Bibliany](https://andguerreiro.github.io/bibliany/) e [ISBN](https://andguerreiro.github.io/isbn)
 
 Boas leituras!  
 [Andrews Guerreiro](https://github.com/andguerreiro)
