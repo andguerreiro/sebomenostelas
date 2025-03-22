@@ -1,4 +1,4 @@
-**Sebo Menos Telas**
+# Sebo Menos Telas
 
 Desde outubro de 2017, eu vendo, coleto doações e compro livros usados para revenda. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas.
 
@@ -10,8 +10,10 @@ Se quiser doar seus livros, eu coleto gratuitamente e no mesmo dia em São Paulo
 
 Quanto à compra de livros para revenda, eu compro apenas de bazares beneficentes e ONGs.
 
-Não utilizo mais nenhuma rede social. Se quiser entrar em contato, envie mensagem pelo WhatsApp: [(11) 98135-0566](https://wa.me/5511981350566) ou e-mail: sebomenostelas@gmail.com.
+Não utilizo mais nenhuma rede social. Se quiser entrar em contato, envie mensagem pelo [WhatsApp](https://wa.me/5511981350566) ou [e-mail](mailto:sebomenostelas@gmail.com).
 
-Boas leituras!
+Boas leituras!  
 [Andrews Guerreiro](https://github.com/andguerreiro)
+
+![Logo](logo.png)
 
