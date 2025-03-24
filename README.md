@@ -10,7 +10,7 @@ Se quiser doar seus livros, eu coleto gratuitamente e no mesmo dia em São Paulo
 
 Quanto à compra de livros para revenda, eu compro apenas de bazares beneficentes e ONGs.
 
-Não utilizo mais nenhuma rede social. Se quiser entrar em contato, envie mensagem pelo [WhatsApp](https://wa.me/5511981350566) ou [e-mail](mailto:sebomenostelas@gmail.com).
+Não utilizo mais redes sociais. Se quiser entrar em contato, envie mensagem pelo [WhatsApp](https://wa.me/5511981350566) ou [e-mail](mailto:sebomenostelas@gmail.com).
 
 Boas leituras!  
 [Andrews Guerreiro](https://github.com/andguerreiro)
