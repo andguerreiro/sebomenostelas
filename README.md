@@ -15,5 +15,5 @@ Não utilizo mais redes sociais. Se quiser entrar em contato, envie mensagem pel
 Boas leituras!  
 [Andrews Guerreiro](https://github.com/andguerreiro)
 
-![Logo](logo.png)
+<img src="logo.png" style="width: 160px;">
 
