@@ -2,7 +2,7 @@
 
 Desde outubro de 2017, eu vendo, coleto doações e compro livros usados para revenda. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas.
 
-Qualquer livro é vendido por R$ 10 para incentivar o garimpo e fugir dos preços tabelados da maioria dos sebos.
+Qualquer livro é vendido por R$ 10,00 para incentivar o garimpo e fugir dos preços tabelados da maioria dos sebos.
 
 Voce pode comprar via [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276) ou [WhatsApp](https://wa.me/5511981350566); não tenho loja física.
 
