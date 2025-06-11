@@ -2,7 +2,7 @@
 
 Desde outubro de 2017, eu vendo, coleto doações e compro livros usados para revenda. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas.
 
-Você pode comprar via [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276), [Estante Virtual](https://www.estantevirtual.com.br/sebos-e-livreiros/sebomelivro?sellerId=1002074) ou [WhatsApp](https://wa.me/5511981350566); não tenho loja física.
+Você pode comprar via [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276), [Estante Virtual](https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas?sellerId=1002074) ou [WhatsApp](https://wa.me/5511981350566); não tenho loja física.
 
 Caso esteja no bairro da Mooca, em São Paulo, me envie [mensagem](https://wa.me/5511981350566) que eu entrego seu pedido pessoalmente e sem custo.
 
