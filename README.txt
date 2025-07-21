@@ -19,7 +19,7 @@ Caso esteja no bairro Mooca, em São Paulo, entre em contato[2] que eu entrego s
 Coleta de doações
 =================
 
-Se quiser doar seus livros, eu coleto gratuitamente e até no mesmo dia em São Paulo, SP. Envie mensagem para agendar. Somente livros de ficção são coletados.
+Se quiser doar seus livros, eu coleto gratuitamente e até no mesmo dia em São Paulo, SP. Envie mensagem[2] para agendar. Somente livros de ficção são coletados.
 
 
 Compra de livros usados
