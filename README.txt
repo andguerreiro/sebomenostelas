@@ -7,13 +7,13 @@ Desde outubro de 2017, eu vendo, coleto doações e compro livros usados para re
 Vendas
 ======
 
-Os livros são vendidos via Mercado Livre [1] ou WhatsApp [2]; não tenho loja física.
+Os livros são vendidos via Mercado Livre[1] ou WhatsApp[2]; não tenho loja física.
 
 
 Entrega grátis e retirada
 =========================
 
-Caso esteja no bairro Mooca, em São Paulo, entre em contato [2] que eu entrego seu pedido pessoalmente sem cobrar frete. Ou, se estiver em outro bairro, combine para retirar no meu endereço.
+Caso esteja no bairro Mooca, em São Paulo, entre em contato[2] que eu entrego seu pedido pessoalmente sem cobrar frete. Ou, se estiver em outro bairro, combine para retirar no meu endereço.
 
 
 Coleta de doações
@@ -31,7 +31,7 @@ Quanto à compra de livros para revenda, eu compro apenas de bazares beneficente
 Contato
 =======
 
-Não utilizo mais redes sociais. Se quiser entrar em contato, envie mensagem pelo WhatsApp [2] ou e-mail [3].
+Não utilizo mais redes sociais. Se quiser entrar em contato, envie mensagem pelo WhatsApp[2] ou e-mail[3].
 
 
 Boas Leituras!
