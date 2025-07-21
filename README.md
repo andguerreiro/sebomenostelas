@@ -4,7 +4,7 @@ Desde outubro de 2017, eu vendo, coleto doações e compro livros usados para re
 
 Os livros são vendidos via [Mercado Livre](https://lista.mercadolivre.com.br/_CustId_1175694276) ou [WhatsApp](https://wa.me/5511981350566); não tenho loja física.
 
-Caso esteja no bairro Mooca, em São Paulo, entre em [contato](https://wa.me/5511981350566) que eu entrego seu pedido pessoalmente sem cobrar frete. Ou, se estiver em outro bairro, combine para retirar comigo.
+Caso esteja no bairro Mooca, em São Paulo, entre em [contato](https://wa.me/5511981350566) que eu entrego seu pedido pessoalmente sem cobrar frete. Ou, se estiver em outro bairro, combine para retirar no meu endereço.
 
 Se quiser doar seus livros, eu coleto gratuitamente e até no mesmo dia em São Paulo, SP. Envie [mensagem](https://wa.me/5511981350566) para agendar. Somente livros de ficção são coletados.
 
