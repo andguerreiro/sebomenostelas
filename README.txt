@@ -37,4 +37,4 @@ Não utilizo mais redes sociais. Se quiser entrar em contato, envie mensagem pel
 __________________
 [1] https://lista.mercadolivre.com.br/_CustId_1175694276
 [2] https://wa.me/5511981350566
-[3] mailto:sebomenostelas@gmail.com
+[3] sebomenostelas@gmail.com
