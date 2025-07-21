@@ -34,6 +34,10 @@ Contato
 Não utilizo mais redes sociais. Se quiser entrar em contato, envie mensagem pelo WhatsApp [2] ou e-mail [3].
 
 
+Boas Leituras!
+Andrews Guerreiro
+
+
 __________________
 [1] https://lista.mercadolivre.com.br/_CustId_1175694276
 [2] https://wa.me/5511981350566
