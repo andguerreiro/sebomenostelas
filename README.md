@@ -2,6 +2,6 @@
 
 Sebo digital de livros usados.
 
-Acesse o site: [https://andguerreiro.github.io/sebomenostelas/](https://andguerreiro.github.io/sebomenostelas/)
+Acesse: [https://andguerreiro.github.io/sebomenostelas/](https://andguerreiro.github.io/sebomenostelas/)
 
 Criado e atualizado por [Andrews Guerreiro](https://github.com/andguerreiro)
