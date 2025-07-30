@@ -1,308 +1,275 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Desde outubro de 2017. O objetivo é incentivar a leitura de livros impressos e reduzir o uso de telas.">
-    <title>Acervo Sebo Menos Telas - Sebo digital de livros usados</title>
-    <link rel="icon" type="image/png" href="logo.png">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            margin: 20px;
-            color: #000;
-            background-color: #fff;
-        }
-        h2 {
-            text-align: center;
-            color: #000;
-            margin-bottom: 25px;
-        }
-        h2 a {
-            color: #000;
-            text-decoration: underline;
-        }
-        #searchInput {
-            width: 100%;
-            max-width: 600px;
-            padding: 12px 15px;
-            margin: 0 auto 15px auto; /* Ajuste para dar espaço ao botão */
-            display: block;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        #searchInput:focus {
-            outline: none;
-            border-color: #000;
-            box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
-        }
-        
-        /* Contêiner dos botões */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px; /* Espaço entre os botões */
-            margin-bottom: 15px; /* Reduzido para dar espaço à contagem */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sebo Menos Telas – Um convite à leitura impressa, longe das telas. Desde 2017, incentivando o toque do papel e o silêncio das páginas, com atendimento humano e cuidadoso." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Sebo Menos Telas" />
+  <link rel="canonical" href="https://sebomenostelas.com.br/acervo" />
+  <title>Acervo - Sebo Menos Telas</title>
+  <link rel="icon" href="logo.png" type="image/png" />
 
-        /* Estilo comum para os botões de ação (Garimpar e Limpar) */
-        .action-button {
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 4px;
-            cursor: pointer;
-            border: 1px solid #000;
-            background-color: #000;
-            color: white;
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-            min-width: 120px; /* Garante largura mínima para ambos */
-        }
-        .action-button:hover {
-            background-color: #444;
-        }
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
 
-        /* Estilo para a contagem de resultados */
-        #resultsCount {
-            text-align: center;
-            margin-bottom: 25px;
-            font-weight: bold;
-            color: #333;
-            display: none; /* Oculta inicialmente */
-        }
+    body {
+      max-width: 960px;
+      margin: 40px auto;
+      font-family: Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      padding: 0 20px 50px;
+      background-color: #fdfdfd;
+      color: #1a1a1a;
+    }
 
-        #bookGridContainer {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            padding-bottom: 20px;
-            max-width: 960px;
-            margin: 0 auto;
-        }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
 
-        .book-card {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            display: grid; 
-            gap: 10px 15px;
-        }
+      a {
+        color: #90caf9;
+      }
+    }
 
-        .book-card-item {
-            line-height: 1.4;
-        }
-        .book-card-item b {
-            display: block;
-            font-size: 0.9em;
-            color: #000;
-            margin-bottom: 2px;
-        }
-        .buy-button {
-            grid-column: 1 / -1;
-            display: block;
-            background-color: #000;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.2s ease-in-out;
-            margin-top: 10px;
-            justify-self: center;
-            width: fit-content;
-        }
-        .buy-button:hover {
-            background-color: #444;
-        }
-        
-        .no-results {
-            text-align: center;
-            color: #555;
-            font-style: italic;
-            margin-top: 50px;
-            display: none; /* OCULTA A MENSAGEM INICIALMENTE */
-        }
-        
-        /* Media Queries para responsividade das COLUNAS DOS CAMPOS DENTRO DO LIVRO */
-        @media (min-width: 1200px) {
-            .book-card {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        @media (min-width: 992px) and (max-width: 1199px) {
-            .book-card {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        @media (min-width: 769px) and (max-width: 991px) {
-            .book-card {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+    h1 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 0.2em;
+    }
 
-        /* Para telas pequenas (até 768px, smartphones): 1 coluna de campos */
-        @media (max-width: 768px) {
-            body {
-                margin: 10px;
-            }
-            #bookGridContainer {
-                gap: 15px;
-            }
-            .book-card {
-                grid-template-columns: 1fr;
-                gap: 0;
-                padding: 12px;
-            }
-            .book-card-item b {
-                display: inline;
-                font-size: 1em;
-                color: #000;
-                margin-bottom: 0;
-            }
-            .buy-button {
-                margin-top: 10px;
-                justify-self: stretch;
-            }
-        }
-    </style>
+    h2 {
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: normal;
+      margin-top: -0.5em;
+      margin-bottom: 1.5em;
+      color: #666;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      max-width: 600px;
+      padding: 12px;
+      display: block;
+      margin: 0 auto 20px auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #000;
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .action-button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid #000;
+      background-color: #000;
+      color: white;
+      min-width: 120px;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .action-button:hover {
+      background-color: #444;
+    }
+
+    #resultsCount {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .no-results {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      display: none;
+      margin-top: 40px;
+    }
+
+    #bookGridContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .book-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      background-color: #fff;
+    }
+
+    .book-card-item {
+      margin-bottom: 5px;
+    }
+
+    .book-card-item b {
+      display: inline;
+      font-weight: bold;
+    }
+
+    .buy-button {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #000;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .buy-button:hover {
+      background-color: #444;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .book-card {
+        background-color: #1c1c1c;
+        border-color: #444;
+      }
+
+      .buy-button {
+        background-color: #fff;
+        color: #000;
+      }
+
+      .buy-button:hover {
+        background-color: #ccc;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <h1>Acervo do <a href="https://sebomenostelas.com.br">Sebo Menos Telas</a></h1>
+  
+  <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Digite Título, Autor, Editora, etc.">
 
-    <h2>Acervo <a href="index.html">Sebo Menos Telas</a></h2>
+  <div class="button-container">
+    <button onclick="filterContent()" class="action-button">Garimpar</button>
+    <button onclick="clearSearch()" class="action-button">Limpar</button>
+  </div>
 
-    <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Digite o Título, Autor, Editora, Idioma, etc...">
+  <div id="resultsCount"></div>
+  <div id="bookGridContainer"></div>
+  <div id="noResultsMessage" class="no-results">Nenhum livro encontrado.</div>
 
-    <div class="button-container">
-        <button onclick="filterContent()" class="action-button">Garimpar</button>
-        <button onclick="clearSearch()" class="action-button">Limpar</button>
-    </div>
+  <script>
+    let allBooks = [];
 
-    <div id="resultsCount"></div>
-    
-    <div id="bookGridContainer"></div>
-    <div id="noResultsMessage" class="no-results">Nenhum livro encontrado.</div>
+    window.onload = function () {
+      loadTsvData();
+    };
 
-    <script>
-        let allBooks = []; // Variável para armazenar todos os livros
+    async function loadTsvData() {
+      try {
+        const response = await fetch('livros.tsv');
+        if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+        const tsv = await response.text();
+        parseTsvContent(tsv);
+      } catch (error) {
+        document.getElementById("bookGridContainer").innerHTML = '<p>Erro ao carregar acervo.</p>';
+        document.getElementById("noResultsMessage").style.display = 'none';
+        document.getElementById("resultsCount").style.display = 'none';
+        console.error(error);
+      }
+    }
 
-        window.onload = function() {
-            loadTsvData(); // Carrega os dados do TSV, mas não exibe os livros inicialmente
-        };
+    function parseTsvContent(tsv) {
+      const lines = tsv.split('\n').filter(line => line.trim());
+      const headers = lines[0].split('\t');
 
-        async function loadTsvData() {
-            try {
-                const response = await fetch('livros.tsv');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const tsvContent = await response.text();
-                parseTsvContent(tsvContent);
-            } catch (error) {
-                console.error('Erro ao carregar o arquivo TSV:', error);
-                document.getElementById("bookGridContainer").innerHTML = '<p>Erro ao carregar o acervo. Por favor, tente novamente mais tarde.</p>';
-                document.getElementById("noResultsMessage").style.display = 'none';
-                document.getElementById("resultsCount").style.display = 'none';
+      const precoIndex = headers.findIndex(h => h.toLowerCase().includes('preço'));
+      const freteIndex = headers.findIndex(h => h.toLowerCase().includes('frete'));
+      const totalIndex = headers.findIndex(h => h.toLowerCase().includes('total'));
+      const titleIndex = headers.findIndex(h => h.toLowerCase().includes('título'));
+      const authorIndex = headers.findIndex(h => h.toLowerCase().includes('autor'));
+
+      for (let i = 1; i < lines.length; i++) {
+        const cells = lines[i].split('\t');
+        if (cells.length !== headers.length) continue;
+
+        let html = '';
+        for (let j = 0; j < cells.length; j++) {
+          const label = headers[j].trim();
+          let value = cells[j].trim();
+
+          if ([precoIndex, freteIndex, totalIndex].includes(j)) {
+            const num = parseFloat(value.replace(',', '.'));
+            if (!isNaN(num)) value = num.toFixed(2).replace('.', ',');
+          }
+
+          if (label.toLowerCase().includes('comprar')) {
+            let link = '#';
+            if (titleIndex > -1 && authorIndex > -1) {
+              const msg = `Oi! Quero comprar o livro ${cells[titleIndex]} de ${cells[authorIndex]}`;
+              link = `https://wa.me/5511981350566?text=${encodeURIComponent(msg)}`;
             }
+            html += `<div class="book-card-item"><a href="${link}" class="buy-button" target="_blank">Comprar</a></div>`;
+          } else {
+            html += `<div class="book-card-item"><b>${label}:</b> ${value}</div>`;
+          }
         }
 
-        function parseTsvContent(tsvContent) {
-            const lines = tsvContent.split('\n').filter(line => line.trim() !== '');
-            if (lines.length < 2) {
-                return;
-            }
+        allBooks.push({
+          html: `<div class="book-card">${html}</div>`,
+          text: cells.join(' ').toUpperCase()
+        });
+      }
+    }
 
-            const headers = lines[0].split('\t');
-            
-            const precoIndex = headers.findIndex(h => h.toLowerCase().trim() === 'preço');
-            const freteIndex = headers.findIndex(h => h.toLowerCase().trim() === 'frete');
-            const totalIndex = headers.findIndex(h => h.toLowerCase().trim() === 'total');
-            const titleIndex = headers.findIndex(h => h.toLowerCase().trim() === 'título');
-            const authorIndex = headers.findIndex(h => h.toLowerCase().trim() === 'autor');
+    function filterContent() {
+      const input = document.getElementById("searchInput").value.trim().toUpperCase();
+      let resultHtml = '';
+      let count = 0;
 
-            for (let i = 1; i < lines.length; i++) {
-                const cells = lines[i].split('\t');
-                if (cells.length === headers.length) {
-                    const book = {};
-                    book.html = '';
-                    for (let j = 0; j < cells.length; j++) {
-                        const header = headers[j].trim();
-                        let value = cells[j].trim();
-
-                        if (j === precoIndex || j === freteIndex || j === totalIndex) {
-                           const numericValue = parseFloat(value.replace(',', '.'));
-                           value = isNaN(numericValue) ? value : numericValue.toFixed(2).replace('.', ',');
-                        }
-
-                        if (header.toLowerCase() === 'comprar') {
-                            let whatsappLink = '#';
-                            if (titleIndex > -1 && authorIndex > -1) {
-                                const title = cells[titleIndex];
-                                const author = cells[authorIndex];
-                                const message = `Oi! Quero comprar o livro ${title} de ${author}`;
-                                whatsappLink = `https://wa.me/5511981350566?text=${encodeURIComponent(message)}`;
-                            }
-                            book.html += `<div class="book-card-item"><a href="${whatsappLink}" class="buy-button" target="_blank">Comprar</a></div>`;
-                        } else {
-                            book.html += `<div class="book-card-item"><b>${header}:</b> ${value || ''}</div>`;
-                        }
-                    }
-                    book.html = `<div class="book-card">${book.html}</div>`;
-                    book.text = cells.join(' ').toUpperCase(); // Para busca
-                    allBooks.push(book);
-                }
-            }
+      for (const book of allBooks) {
+        if (book.text.includes(input)) {
+          resultHtml += book.html;
+          count++;
         }
+      }
 
-        function filterContent() {
-            const input = document.getElementById("searchInput");
-            const filter = input.value.toUpperCase().trim();
-            let cardsHtml = '';
-            let resultsCount = 0;
-            const resultsCountElement = document.getElementById("resultsCount");
-            const noResultsMessageElement = document.getElementById("noResultsMessage");
+      document.getElementById("bookGridContainer").innerHTML = resultHtml;
+      document.getElementById("resultsCount").textContent = count > 0 ? `Foram encontrados ${count} livro(s).` : '';
+      document.getElementById("resultsCount").style.display = count > 0 ? 'block' : 'none';
+      document.getElementById("noResultsMessage").style.display = count === 0 ? 'block' : 'none';
+    }
 
-            if (filter === "") {
-                document.getElementById("bookGridContainer").innerHTML = '';
-                resultsCountElement.style.display = 'none';
-                noResultsMessageElement.style.display = 'block';
-                return;
-            }
+    function handleKeyPress(e) {
+      if (e.key === 'Enter') filterContent();
+    }
 
-            for (let i = 0; i < allBooks.length; i++) {
-                if (allBooks[i].text.indexOf(filter) > -1) {
-                    cardsHtml += allBooks[i].html;
-                    resultsCount++;
-                }
-            }
-
-            document.getElementById("bookGridContainer").innerHTML = cardsHtml;
-
-            if (resultsCount > 0) {
-                resultsCountElement.textContent = `Foram encontrados ${resultsCount} livro(s).`;
-                resultsCountElement.style.display = 'block';
-                noResultsMessageElement.style.display = 'none';
-            } else {
-                resultsCountElement.style.display = 'none';
-                noResultsMessageElement.style.display = 'block';
-            }
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === "Enter") {
-                filterContent();
-            }
-        }
-
-        function clearSearch() {
-            document.getElementById("searchInput").value = '';
-            document.getElementById("bookGridContainer").innerHTML = '';
-            document.getElementById("resultsCount").style.display = 'none';
-            document.getElementById("noResultsMessage").style.display = 'none';
-        }
-    </script>
+    function clearSearch() {
+      document.getElementById("searchInput").value = '';
+      document.getElementById("bookGridContainer").innerHTML = '';
+      document.getElementById("resultsCount").style.display = 'none';
+      document.getElementById("noResultsMessage").style.display = 'none';
+    }
+  </script>
 </body>
 </html>
+
