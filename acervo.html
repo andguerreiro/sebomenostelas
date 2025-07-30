@@ -45,11 +45,11 @@
             display: flex;
             justify-content: center;
             gap: 10px; /* Espaço entre os botões */
-            margin-bottom: 25px;
+            margin-bottom: 15px; /* Reduzido para dar espaço à contagem */
         }
 
-        /* Estilo do botão de pesquisa */
-        .search-button {
+        /* Estilo comum para os botões de ação (Pesquisar e Limpar) */
+        .action-button {
             padding: 10px 20px;
             font-size: 1em;
             border-radius: 4px;
@@ -58,10 +58,19 @@
             background-color: #000;
             color: white;
             transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-            min-width: 120px; /* Mantém largura similar aos botões anteriores */
+            min-width: 120px; /* Garante largura mínima para ambos */
         }
-        .search-button:hover {
+        .action-button:hover {
             background-color: #444;
+        }
+
+        /* Estilo para a contagem de resultados */
+        #resultsCount {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #333;
+            display: none; /* Oculta inicialmente */
         }
 
         #bookGridContainer {
@@ -171,10 +180,10 @@
     <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Pesquisar por Título, Autor, Editora, etc...">
 
     <div class="button-container">
-        <button onclick="filterContent()" class="search-button">Pesquisar</button>
-    </div>
+        <button onclick="filterContent()" class="action-button">Pesquisar</button>
+        <button onclick="clearSearch()" class="action-button">Limpar</button> </div>
 
-    <div id="bookGridContainer"></div>
+    <div id="resultsCount"></div> <div id="bookGridContainer"></div>
     <div id="noResultsMessage" class="no-results">Nenhum livro encontrado.</div>
 
     <script>
@@ -196,14 +205,13 @@
                 console.error('Erro ao carregar o arquivo TSV:', error);
                 document.getElementById("bookGridContainer").innerHTML = '<p>Erro ao carregar o acervo. Por favor, tente novamente mais tarde.</p>';
                 document.getElementById("noResultsMessage").style.display = 'none'; // Esconde a mensagem "Nenhum livro encontrado" em caso de erro de carregamento.
+                document.getElementById("resultsCount").style.display = 'none'; // Esconde a contagem em caso de erro.
             }
         }
 
         function parseTsvContent(tsvContent) {
             const lines = tsvContent.split('\n').filter(line => line.trim() !== '');
             if (lines.length < 2) {
-                // Se o arquivo TSV estiver vazio ou tiver apenas o cabeçalho, a lista de allBooks permanecerá vazia.
-                // A mensagem "Nenhum livro encontrado" será gerenciada por filterContent() na primeira pesquisa.
                 return;
             }
 
@@ -253,29 +261,47 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toUpperCase().trim();
             let cardsHtml = '';
-            let resultsFound = false;
+            let resultsCount = 0; // Contador de resultados
+            const resultsCountElement = document.getElementById("resultsCount");
+            const noResultsMessageElement = document.getElementById("noResultsMessage");
 
-            if (filter === "" && allBooks.length > 0) { // Se a pesquisa estiver vazia e houver livros, exibe a mensagem de "Nenhum livro encontrado."
+            if (filter === "") {
                 document.getElementById("bookGridContainer").innerHTML = '';
-                document.getElementById("noResultsMessage").style.display = 'block';
+                resultsCountElement.style.display = 'none'; // Esconde a contagem se a pesquisa estiver vazia
+                noResultsMessageElement.style.display = 'block'; // Mostra a mensagem de nenhum livro encontrado
                 return;
             }
 
             for (let i = 0; i < allBooks.length; i++) {
                 if (allBooks[i].text.indexOf(filter) > -1) {
                     cardsHtml += allBooks[i].html;
-                    resultsFound = true;
+                    resultsCount++; // Incrementa o contador
                 }
             }
 
             document.getElementById("bookGridContainer").innerHTML = cardsHtml;
-            document.getElementById("noResultsMessage").style.display = resultsFound ? 'none' : 'block';
+
+            if (resultsCount > 0) {
+                resultsCountElement.textContent = `Foram encontrados ${resultsCount} livro(s).`;
+                resultsCountElement.style.display = 'block';
+                noResultsMessageElement.style.display = 'none';
+            } else {
+                resultsCountElement.style.display = 'none';
+                noResultsMessageElement.style.display = 'block';
+            }
         }
 
         function handleKeyPress(event) {
             if (event.key === "Enter") {
                 filterContent();
             }
+        }
+
+        function clearSearch() {
+            document.getElementById("searchInput").value = ''; // Limpa o campo de busca
+            document.getElementById("bookGridContainer").innerHTML = ''; // Remove os livros exibidos
+            document.getElementById("resultsCount").style.display = 'none'; // Esconde a contagem
+            document.getElementById("noResultsMessage").style.display = 'none'; // Garante que a mensagem de "Nenhum livro encontrado" não apareça após limpar
         }
     </script>
 </body>
