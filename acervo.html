@@ -18,6 +18,10 @@
             color: #000;
             margin-bottom: 25px;
         }
+        h2 a {
+            color: #000;
+            text-decoration: underline;
+        }
         #searchInput {
             width: 100%;
             max-width: 600px;
@@ -36,7 +40,6 @@
             box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
         }
         
-        /* Contêiner da Grade de Livros: SEMPRE 1 livro por linha */
         #bookGridContainer {
             display: grid;
             grid-template-columns: 1fr;
@@ -46,7 +49,6 @@
             margin: 0 auto;
         }
 
-        /* Estilo do Cartão de Livro Individual */
         .book-card {
             background-color: #fff;
             border: 1px solid #ccc;
@@ -82,6 +84,13 @@
         }
         .buy-button:hover {
             background-color: #444;
+        }
+        
+        .no-results {
+            text-align: center;
+            color: #555;
+            font-style: italic;
+            margin-top: 50px;
         }
         
         /* Media Queries para responsividade das COLUNAS DOS CAMPOS DENTRO DO LIVRO */
@@ -132,21 +141,24 @@
 </head>
 <body>
 
-    <h2>Acervo <a href="index.html" target="_blank">Sebo Menos Telas</a></h2>
+    <h2>Acervo <a href="index.html">Sebo Menos Telas</a></h2>
 
-    <input type="text" id="searchInput" onkeyup="filterContent()" placeholder="Pesquisar por Título, Autor, Editora, etc...">
+    <input type="text" id="searchInput" onkeyup="filterContent()" placeholder="Pesquisar em Título, Autor, Editora, etc...">
 
     <div id="bookGridContainer"></div>
+    <div id="noResultsMessage" class="no-results" style="display:none;">Nenhum livro encontrado.</div>
 
     <script>
+        let allBooks = []; // Variável para armazenar todos os livros
+
         window.onload = function() {
-            generateContent();
+            loadTsvAndGenerateContent();
         };
 
-        async function generateContent() {
+        async function loadTsvAndGenerateContent() {
             let tsvContent;
             try {
-                const response = await fetch('livros.tsv'); // Pega o conteúdo do arquivo externo
+                const response = await fetch('livros.tsv');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -158,21 +170,23 @@
             }
 
             var lines = tsvContent.split('\n').filter(line => line.trim() !== '');
-            if (lines.length < 2) return;
+            if (lines.length < 2) {
+                displayNoResults();
+                return;
+            }
 
             var headers = lines[0].split('\t');
-            
             var precoIndex = headers.findIndex(h => h.toLowerCase().trim() === 'preço');
             var freteIndex = headers.findIndex(h => h.toLowerCase().trim() === 'frete');
             var totalIndex = headers.findIndex(h => h.toLowerCase().trim() === 'total');
+            var titleIndex = headers.findIndex(h => h.toLowerCase().trim() === 'título');
+            var authorIndex = headers.findIndex(h => h.toLowerCase().trim() === 'autor');
 
-            var cardsHtml = '';
-            
             for (var i = 1; i < lines.length; i++) {
                 var cells = lines[i].split('\t');
                 if (cells.length === headers.length) {
-                    var cardHtml = '<div class="book-card">';
-                    
+                    var book = {};
+                    book.html = '';
                     for (var j = 0; j < cells.length; j++) {
                         var header = headers[j].trim();
                         var value = cells[j].trim();
@@ -183,42 +197,41 @@
                         }
 
                         if (header.toLowerCase() === 'comprar') {
-                            var titleIndex = headers.findIndex(h => h.toLowerCase().trim() === 'título');
-                            var authorIndex = headers.findIndex(h => h.toLowerCase().trim() === 'autor');
                             var whatsappLink = '#';
-
                             if (titleIndex > -1 && authorIndex > -1) {
                                 var title = cells[titleIndex];
                                 var author = cells[authorIndex];
                                 var message = 'Oi! Quero comprar o livro ' + title + ' de ' + author;
                                 whatsappLink = 'https://wa.me/5511981350566?text=' + encodeURIComponent(message);
                             }
-                            cardHtml += '<div class="book-card-item"><a href="' + whatsappLink + '" class="buy-button" target="_blank">Comprar pelo WhatsApp</a></div>';
+                            book.html += '<div class="book-card-item"><a href="' + whatsappLink + '" class="buy-button" target="_blank">Comprar</a></div>';
                         } else {
-                            cardHtml += '<div class="book-card-item"><b>' + header + ':</b> ' + (value || '') + '</div>';
+                            book.html += '<div class="book-card-item"><b>' + header + ':</b> ' + (value || '') + '</div>';
                         }
                     }
-                    cardHtml += '</div>';
-                    cardsHtml += cardHtml;
+                    book.html = '<div class="book-card">' + book.html + '</div>';
+                    book.text = cells.join(' ').toUpperCase(); // Para busca
+                    allBooks.push(book);
                 }
             }
-            document.getElementById("bookGridContainer").innerHTML = cardsHtml;
+            filterContent();
         }
 
         function filterContent() {
-            var input, filter, cards, i, cardText;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
+            var input = document.getElementById("searchInput");
+            var filter = input.value.toUpperCase();
+            var cardsHtml = '';
+            var resultsFound = false;
 
-            cards = document.getElementById("bookGridContainer").getElementsByClassName("book-card");
-            for (i = 0; i < cards.length; i++) {
-                cardText = cards[i].textContent || cards[i].innerText;
-                if (cardText.toUpperCase().indexOf(filter) > -1) {
-                    cards[i].style.display = "grid";
-                } else {
-                    cards[i].style.display = "none";
+            for (var i = 0; i < allBooks.length; i++) {
+                if (allBooks[i].text.indexOf(filter) > -1) {
+                    cardsHtml += allBooks[i].html;
+                    resultsFound = true;
                 }
             }
+
+            document.getElementById("bookGridContainer").innerHTML = cardsHtml;
+            document.getElementById("noResultsMessage").style.display = resultsFound ? 'none' : 'block';
         }
     </script>
 </body>
