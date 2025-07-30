@@ -115,6 +115,7 @@
             color: #555;
             font-style: italic;
             margin-top: 50px;
+            display: none; /* OCULTA A MENSAGEM INICIALMENTE */
         }
         
         /* Media Queries para responsividade das COLUNAS DOS CAMPOS DENTRO DO LIVRO */
@@ -167,100 +168,100 @@
 
     <h2>Acervo <a href="index.html">Sebo Menos Telas</a></h2>
 
-    <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Pesquisar em Título, Autor, Editora, etc...">
+    <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Pesquisar por Título, Autor, Editora, etc...">
 
     <div class="button-container">
         <button onclick="filterContent()" class="search-button">Pesquisar</button>
     </div>
 
     <div id="bookGridContainer"></div>
-    <div id="noResultsMessage" class="no-results" style="display:block;">Nenhum livro encontrado.</div>
+    <div id="noResultsMessage" class="no-results">Nenhum livro encontrado.</div>
 
     <script>
         let allBooks = []; // Variável para armazenar todos os livros
 
         window.onload = function() {
-            loadTsvData(); // Carrega os dados do TSV, mas não exibe os livros
+            loadTsvData(); // Carrega os dados do TSV, mas não exibe os livros inicialmente
         };
 
         async function loadTsvData() {
-            let tsvContent;
             try {
-                const response = await fetch('livros.tsv'); // Pega o conteúdo do arquivo externo
+                const response = await fetch('livros.tsv');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                tsvContent = await response.text();
+                const tsvContent = await response.text();
+                parseTsvContent(tsvContent);
             } catch (error) {
                 console.error('Erro ao carregar o arquivo TSV:', error);
                 document.getElementById("bookGridContainer").innerHTML = '<p>Erro ao carregar o acervo. Por favor, tente novamente mais tarde.</p>';
-                document.getElementById("noResultsMessage").style.display = 'none'; // Esconde a mensagem "Nenhum livro encontrado" em caso de erro no carregamento
-                return;
+                document.getElementById("noResultsMessage").style.display = 'none'; // Esconde a mensagem "Nenhum livro encontrado" em caso de erro de carregamento.
             }
+        }
 
-            var lines = tsvContent.split('\n').filter(line => line.trim() !== '');
+        function parseTsvContent(tsvContent) {
+            const lines = tsvContent.split('\n').filter(line => line.trim() !== '');
             if (lines.length < 2) {
-                // Se o arquivo TSV estiver vazio ou tiver apenas o cabeçalho, exibe a mensagem de nenhum livro encontrado
-                displayNoResults(); 
+                // Se o arquivo TSV estiver vazio ou tiver apenas o cabeçalho, a lista de allBooks permanecerá vazia.
+                // A mensagem "Nenhum livro encontrado" será gerenciada por filterContent() na primeira pesquisa.
                 return;
             }
 
-            var headers = lines[0].split('\t');
+            const headers = lines[0].split('\t');
             
-            var precoIndex = headers.findIndex(h => h.toLowerCase().trim() === 'preço');
-            var freteIndex = headers.findIndex(h => h.toLowerCase().trim() === 'frete');
-            var totalIndex = headers.findIndex(h => h.toLowerCase().trim() === 'total');
-            var titleIndex = headers.findIndex(h => h.toLowerCase().trim() === 'título');
-            var authorIndex = headers.findIndex(h => h.toLowerCase().trim() === 'autor');
+            const precoIndex = headers.findIndex(h => h.toLowerCase().trim() === 'preço');
+            const freteIndex = headers.findIndex(h => h.toLowerCase().trim() === 'frete');
+            const totalIndex = headers.findIndex(h => h.toLowerCase().trim() === 'total');
+            const titleIndex = headers.findIndex(h => h.toLowerCase().trim() === 'título');
+            const authorIndex = headers.findIndex(h => h.toLowerCase().trim() === 'autor');
 
-            for (var i = 1; i < lines.length; i++) {
-                var cells = lines[i].split('\t');
+            for (let i = 1; i < lines.length; i++) {
+                const cells = lines[i].split('\t');
                 if (cells.length === headers.length) {
-                    var book = {};
+                    const book = {};
                     book.html = '';
-                    for (var j = 0; j < cells.length; j++) {
-                        var header = headers[j].trim();
-                        var value = cells[j].trim();
+                    for (let j = 0; j < cells.length; j++) {
+                        const header = headers[j].trim();
+                        let value = cells[j].trim();
 
                         if (j === precoIndex || j === freteIndex || j === totalIndex) {
-                           var numericValue = parseFloat(value.replace(',', '.'));
+                           const numericValue = parseFloat(value.replace(',', '.'));
                            value = isNaN(numericValue) ? value : numericValue.toFixed(2).replace('.', ',');
                         }
 
                         if (header.toLowerCase() === 'comprar') {
-                            var whatsappLink = '#';
+                            let whatsappLink = '#';
                             if (titleIndex > -1 && authorIndex > -1) {
-                                var title = cells[titleIndex];
-                                var author = cells[authorIndex];
-                                var message = 'Oi! Quero comprar o livro ' + title + ' de ' + author;
-                                whatsappLink = 'https://wa.me/5511981350566?text=' + encodeURIComponent(message);
+                                const title = cells[titleIndex];
+                                const author = cells[authorIndex];
+                                const message = `Oi! Quero comprar o livro ${title} de ${author}`;
+                                whatsappLink = `https://wa.me/5511981350566?text=${encodeURIComponent(message)}`;
                             }
-                            book.html += '<div class="book-card-item"><a href="' + whatsappLink + '" class="buy-button" target="_blank">Comprar</a></div>';
+                            book.html += `<div class="book-card-item"><a href="${whatsappLink}" class="buy-button" target="_blank">Comprar</a></div>`;
                         } else {
-                            book.html += '<div class="book-card-item"><b>' + header + ':</b> ' + (value || '') + '</div>';
+                            book.html += `<div class="book-card-item"><b>${header}:</b> ${value || ''}</div>`;
                         }
                     }
-                    book.html = '<div class="book-card">' + book.html + '</div>';
+                    book.html = `<div class="book-card">${book.html}</div>`;
                     book.text = cells.join(' ').toUpperCase(); // Para busca
                     allBooks.push(book);
                 }
             }
-            // Não chama filterContent aqui, para não exibir os livros no carregamento inicial
         }
 
         function filterContent() {
-            var input = document.getElementById("searchInput");
-            var filter = input.value.toUpperCase().trim(); // Adicionado .trim() para remover espaços em branco
-            var cardsHtml = '';
-            var resultsFound = false;
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toUpperCase().trim();
+            let cardsHtml = '';
+            let resultsFound = false;
 
-            if (filter === "") { // Se a pesquisa estiver vazia, não exibe livros
+            if (filter === "" && allBooks.length > 0) { // Se a pesquisa estiver vazia e houver livros, exibe a mensagem de "Nenhum livro encontrado."
                 document.getElementById("bookGridContainer").innerHTML = '';
                 document.getElementById("noResultsMessage").style.display = 'block';
                 return;
             }
 
-            for (var i = 0; i < allBooks.length; i++) {
+            for (let i = 0; i < allBooks.length; i++) {
                 if (allBooks[i].text.indexOf(filter) > -1) {
                     cardsHtml += allBooks[i].html;
                     resultsFound = true;
@@ -275,11 +276,6 @@
             if (event.key === "Enter") {
                 filterContent();
             }
-        }
-
-        function displayNoResults() {
-            document.getElementById("bookGridContainer").innerHTML = ''; // Limpa os cards existentes
-            document.getElementById("noResultsMessage").style.display = 'block'; // Exibe a mensagem
         }
     </script>
 </body>
