@@ -1,6 +1,6 @@
 # Sebo Menos Telas
 
-Sebo digital de livros usados.
+Um refúgio de papel em tempos de telas
 
 Site: [sebomenostelas.com.br](https://sebomenostelas.com.br)
 
