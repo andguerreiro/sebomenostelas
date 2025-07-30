@@ -48,7 +48,7 @@
             margin-bottom: 15px; /* Reduzido para dar espaço à contagem */
         }
 
-        /* Estilo comum para os botões de ação (Pesquisar e Limpar) */
+        /* Estilo comum para os botões de ação (Garimpar e Limpar) */
         .action-button {
             padding: 10px 20px;
             font-size: 1em;
@@ -157,9 +157,6 @@
                 gap: 0;
                 padding: 12px;
             }
-            .book-card-item {
-                margin-bottom: 8px;
-            }
             .book-card-item b {
                 display: inline;
                 font-size: 1em;
@@ -177,13 +174,16 @@
 
     <h2>Acervo <a href="index.html">Sebo Menos Telas</a></h2>
 
-    <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Pesquisar por Título, Autor, Editora, etc...">
+    <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Digite o Título, Autor, Editora, Idioma, etc...">
 
     <div class="button-container">
-        <button onclick="filterContent()" class="action-button">Pesquisar</button>
-        <button onclick="clearSearch()" class="action-button">Limpar</button> </div>
+        <button onclick="filterContent()" class="action-button">Garimpar</button>
+        <button onclick="clearSearch()" class="action-button">Limpar</button>
+    </div>
 
-    <div id="resultsCount"></div> <div id="bookGridContainer"></div>
+    <div id="resultsCount"></div>
+    
+    <div id="bookGridContainer"></div>
     <div id="noResultsMessage" class="no-results">Nenhum livro encontrado.</div>
 
     <script>
@@ -204,8 +204,8 @@
             } catch (error) {
                 console.error('Erro ao carregar o arquivo TSV:', error);
                 document.getElementById("bookGridContainer").innerHTML = '<p>Erro ao carregar o acervo. Por favor, tente novamente mais tarde.</p>';
-                document.getElementById("noResultsMessage").style.display = 'none'; // Esconde a mensagem "Nenhum livro encontrado" em caso de erro de carregamento.
-                document.getElementById("resultsCount").style.display = 'none'; // Esconde a contagem em caso de erro.
+                document.getElementById("noResultsMessage").style.display = 'none';
+                document.getElementById("resultsCount").style.display = 'none';
             }
         }
 
@@ -261,21 +261,21 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toUpperCase().trim();
             let cardsHtml = '';
-            let resultsCount = 0; // Contador de resultados
+            let resultsCount = 0;
             const resultsCountElement = document.getElementById("resultsCount");
             const noResultsMessageElement = document.getElementById("noResultsMessage");
 
             if (filter === "") {
                 document.getElementById("bookGridContainer").innerHTML = '';
-                resultsCountElement.style.display = 'none'; // Esconde a contagem se a pesquisa estiver vazia
-                noResultsMessageElement.style.display = 'block'; // Mostra a mensagem de nenhum livro encontrado
+                resultsCountElement.style.display = 'none';
+                noResultsMessageElement.style.display = 'block';
                 return;
             }
 
             for (let i = 0; i < allBooks.length; i++) {
                 if (allBooks[i].text.indexOf(filter) > -1) {
                     cardsHtml += allBooks[i].html;
-                    resultsCount++; // Incrementa o contador
+                    resultsCount++;
                 }
             }
 
@@ -298,10 +298,10 @@
         }
 
         function clearSearch() {
-            document.getElementById("searchInput").value = ''; // Limpa o campo de busca
-            document.getElementById("bookGridContainer").innerHTML = ''; // Remove os livros exibidos
-            document.getElementById("resultsCount").style.display = 'none'; // Esconde a contagem
-            document.getElementById("noResultsMessage").style.display = 'none'; // Garante que a mensagem de "Nenhum livro encontrado" não apareça após limpar
+            document.getElementById("searchInput").value = '';
+            document.getElementById("bookGridContainer").innerHTML = '';
+            document.getElementById("resultsCount").style.display = 'none';
+            document.getElementById("noResultsMessage").style.display = 'none';
         }
     </script>
 </body>
