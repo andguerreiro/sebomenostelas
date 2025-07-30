@@ -2,8 +2,8 @@
 
 Sebo digital de livros usados.
 
-Site: [andguerreiro.github.io/sebomenostelas/](https://andguerreiro.github.io/sebomenostelas/)
+Site: [sebomenostelas.com.br](https://sebomenostelas.com.br)
 
-Acervo: [andguerreiro.github.io/sebomenostelas/acervo.html](https://andguerreiro.github.io/sebomenostelas/acervo.html)
+Acervo: [sebomenostelas.com.br/acervo](https://sebomenostelas.com.br/acervo)
 
 Criado e atualizado por [Andrews Guerreiro](https://github.com/andguerreiro)
