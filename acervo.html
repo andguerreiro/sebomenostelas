@@ -26,7 +26,7 @@
             width: 100%;
             max-width: 600px;
             padding: 12px 15px;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 15px auto; /* Ajuste para dar espaço ao botão */
             display: block;
             box-sizing: border-box;
             border: 1px solid #ccc;
@@ -40,6 +40,30 @@
             box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
         }
         
+        /* Contêiner dos botões (reintroduzido) */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Espaço entre os botões */
+            margin-bottom: 25px;
+        }
+
+        /* Estilo do botão de pesquisa */
+        .search-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid #000;
+            background-color: #000;
+            color: white;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            min-width: 120px; /* Mantém largura similar aos botões anteriores */
+        }
+        .search-button:hover {
+            background-color: #444;
+        }
+
         #bookGridContainer {
             display: grid;
             grid-template-columns: 1fr;
@@ -143,7 +167,11 @@
 
     <h2>Acervo <a href="index.html">Sebo Menos Telas</a></h2>
 
-    <input type="text" id="searchInput" onkeyup="filterContent()" placeholder="Pesquisar em Título, Autor, Editora, etc...">
+    <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Pesquisar em Título, Autor, Editora, etc...">
+
+    <div class="button-container">
+        <button onclick="filterContent()" class="search-button">Pesquisar</button>
+    </div>
 
     <div id="bookGridContainer"></div>
     <div id="noResultsMessage" class="no-results" style="display:none;">Nenhum livro encontrado.</div>
@@ -158,7 +186,7 @@
         async function loadTsvAndGenerateContent() {
             let tsvContent;
             try {
-                const response = await fetch('livros.tsv');
+                const response = await fetch('livros.tsv'); // Pega o conteúdo do arquivo externo
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -171,11 +199,12 @@
 
             var lines = tsvContent.split('\n').filter(line => line.trim() !== '');
             if (lines.length < 2) {
-                displayNoResults();
+                displayNoResults(); // Mostra mensagem se não houver dados no TSV
                 return;
             }
 
             var headers = lines[0].split('\t');
+            
             var precoIndex = headers.findIndex(h => h.toLowerCase().trim() === 'preço');
             var freteIndex = headers.findIndex(h => h.toLowerCase().trim() === 'frete');
             var totalIndex = headers.findIndex(h => h.toLowerCase().trim() === 'total');
@@ -204,6 +233,7 @@
                                 var message = 'Oi! Quero comprar o livro ' + title + ' de ' + author;
                                 whatsappLink = 'https://wa.me/5511981350566?text=' + encodeURIComponent(message);
                             }
+                            // Botão "Comprar"
                             book.html += '<div class="book-card-item"><a href="' + whatsappLink + '" class="buy-button" target="_blank">Comprar</a></div>';
                         } else {
                             book.html += '<div class="book-card-item"><b>' + header + ':</b> ' + (value || '') + '</div>';
@@ -214,7 +244,7 @@
                     allBooks.push(book);
                 }
             }
-            filterContent();
+            filterContent(); // Chama filterContent para exibir todos os livros no carregamento inicial
         }
 
         function filterContent() {
@@ -232,6 +262,17 @@
 
             document.getElementById("bookGridContainer").innerHTML = cardsHtml;
             document.getElementById("noResultsMessage").style.display = resultsFound ? 'none' : 'block';
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                filterContent();
+            }
+        }
+
+        function displayNoResults() {
+            document.getElementById("bookGridContainer").innerHTML = ''; // Limpa os cards existentes
+            document.getElementById("noResultsMessage").style.display = 'block'; // Exibe a mensagem
         }
     </script>
 </body>
