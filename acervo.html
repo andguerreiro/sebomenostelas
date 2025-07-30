@@ -40,7 +40,7 @@
             box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
         }
         
-        /* Contêiner dos botões (reintroduzido) */
+        /* Contêiner dos botões */
         .button-container {
             display: flex;
             justify-content: center;
@@ -174,16 +174,16 @@
     </div>
 
     <div id="bookGridContainer"></div>
-    <div id="noResultsMessage" class="no-results" style="display:none;">Nenhum livro encontrado.</div>
+    <div id="noResultsMessage" class="no-results" style="display:block;">Nenhum livro encontrado.</div>
 
     <script>
         let allBooks = []; // Variável para armazenar todos os livros
 
         window.onload = function() {
-            loadTsvAndGenerateContent();
+            loadTsvData(); // Carrega os dados do TSV, mas não exibe os livros
         };
 
-        async function loadTsvAndGenerateContent() {
+        async function loadTsvData() {
             let tsvContent;
             try {
                 const response = await fetch('livros.tsv'); // Pega o conteúdo do arquivo externo
@@ -194,12 +194,14 @@
             } catch (error) {
                 console.error('Erro ao carregar o arquivo TSV:', error);
                 document.getElementById("bookGridContainer").innerHTML = '<p>Erro ao carregar o acervo. Por favor, tente novamente mais tarde.</p>';
+                document.getElementById("noResultsMessage").style.display = 'none'; // Esconde a mensagem "Nenhum livro encontrado" em caso de erro no carregamento
                 return;
             }
 
             var lines = tsvContent.split('\n').filter(line => line.trim() !== '');
             if (lines.length < 2) {
-                displayNoResults(); // Mostra mensagem se não houver dados no TSV
+                // Se o arquivo TSV estiver vazio ou tiver apenas o cabeçalho, exibe a mensagem de nenhum livro encontrado
+                displayNoResults(); 
                 return;
             }
 
@@ -233,7 +235,6 @@
                                 var message = 'Oi! Quero comprar o livro ' + title + ' de ' + author;
                                 whatsappLink = 'https://wa.me/5511981350566?text=' + encodeURIComponent(message);
                             }
-                            // Botão "Comprar"
                             book.html += '<div class="book-card-item"><a href="' + whatsappLink + '" class="buy-button" target="_blank">Comprar</a></div>';
                         } else {
                             book.html += '<div class="book-card-item"><b>' + header + ':</b> ' + (value || '') + '</div>';
@@ -244,14 +245,20 @@
                     allBooks.push(book);
                 }
             }
-            filterContent(); // Chama filterContent para exibir todos os livros no carregamento inicial
+            // Não chama filterContent aqui, para não exibir os livros no carregamento inicial
         }
 
         function filterContent() {
             var input = document.getElementById("searchInput");
-            var filter = input.value.toUpperCase();
+            var filter = input.value.toUpperCase().trim(); // Adicionado .trim() para remover espaços em branco
             var cardsHtml = '';
             var resultsFound = false;
+
+            if (filter === "") { // Se a pesquisa estiver vazia, não exibe livros
+                document.getElementById("bookGridContainer").innerHTML = '';
+                document.getElementById("noResultsMessage").style.display = 'block';
+                return;
+            }
 
             for (var i = 0; i < allBooks.length; i++) {
                 if (allBooks[i].text.indexOf(filter) > -1) {
