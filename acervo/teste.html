@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sebo Menos Telas – Sebo online em São Paulo desde 2017, promovendo a leitura de livros usados e impressos com atendimento humano e cuidadoso. Explore nosso acervo e saiba como comprar." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Sebo Menos Telas" />
+    <link rel="canonical" href="https://sebomenostelas.com.br/" />
+
+    <link rel="preload" as="image" href="logo.webp" />
+
+    <link rel="icon" href="logo.webp" type="image/webp" />
+
+    <title>Sebo Menos Telas – Um refúgio de papel em tempos de telas | Acervo</title>
+
+    <meta property="og:title" content="Sebo Menos Telas – Um refúgio de papel em tempos de telas" />
+    <meta property="og:description" content="Desde 2017, incentivando o toque do papel e o silêncio das páginas, com atendimento humano e cuidadoso. Explore nosso acervo e saiba como comprar." />
+    <meta property="og:image" content="https://sebomenostelas.com.br/logo.webp" />
+    <meta property="og:url" content="https://sebomenostelas.com.br/" />
+    <meta property="og:type" content="website" />
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BookStore",
+            "name": "Sebo Menos Telas",
+            "url": "https://sebomenostelas.com.br",
+            "logo": "https://sebomenostelas.com.br/logo.webp",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+55-11-98135-0566",
+                "contactType": "Customer Service"
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            color-scheme: light dark;
+            --primary-text-color: #000;
+            --secondary-text-color: #666;
+            --background-color: #fff;
+            --border-color: #ccc;
+            --button-bg-color: #000;
+            --button-text-color: #fff;
+            --link-color: inherit;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-text-color: #f5f5f5;
+                --secondary-text-color: #aaa;
+                --background-color: #121212;
+                --border-color: #444;
+                --button-bg-color: #333;
+                --button-text-color: #f5f5f5;
+                --link-color: #90caf9;
+                --shadow-color: rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 17px;
+            line-height: 1.7;
+            background-color: var(--background-color);
+            color: var(--primary-text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 960px; /* Aumentado para acomodar o acervo */
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        a[target="_blank"] {
+            rel: noopener noreferrer;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        header .logo {
+            display: block;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            margin-top: -0.7em;
+            margin-bottom: 0.2em;
+            line-height: 1.3;
+            color: var(--primary-text-color);
+        }
+
+        header h2 {
+            font-size: 1.1em;
+            font-weight: normal;
+            margin-top: -0.5em;
+            margin-bottom: 2em;
+            color: var(--secondary-text-color);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--button-bg-color);
+            padding: 10px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px var(--shadow-color);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--button-text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            white-space: nowrap; /* Evita que o texto quebre */
+        }
+
+        nav ul li a:hover {
+            background-color: var(--secondary-text-color);
+            color: var(--button-text-color);
+        }
+
+        /* Main Content Sections */
+        section {
+            margin-bottom: 3em;
+            padding: 20px;
+            background-color: var(--background-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        section h3 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 1em;
+            color: var(--primary-text-color);
+            text-align: center;
+        }
+
+        /* Acervo Section Specific Styles */
+        #acervo-section h3 {
+            margin-bottom: 25px;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 600px;
+            padding: 12px 15px;
+            margin: 0 auto 15px auto;
+            display: block;
+            box-sizing: border-box;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            background-color: var(--background-color);
+            color: var(--primary-text-color);
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--primary-text-color);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); /* Ajustado para clareza */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 44px;
+            cursor: pointer;
+            border: 1px solid var(--button-bg-color);
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            min-width: 120px;
+        }
+
+        .action-button:hover {
+            background-color: var(--secondary-text-color);
+        }
+
+        #resultsCount {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: var(--secondary-text-color);
+            display: none;
+        }
+
+        #bookGridContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mais flexível */
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+
+        .book-card {
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+            display: flex; /* Usar flexbox para layout interno */
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-card-item {
+            line-height: 1.4;
+            margin-bottom: 5px; /* Espaçamento entre itens */
+        }
+
+        .book-card-item b {
+            font-size: 0.9em;
+            color: var(--primary-text-color);
+            display: inline; /* Mostrar o bold na mesma linha */
+        }
+
+        .buy-button {
+            display: block;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .buy-button:hover {
+            background-color: var(--secondary-text-color);
+        }
+
+        .no-results {
+            text-align: center;
+            color: var(--secondary-text-color);
+            font-style: italic;
+            margin-top: 50px;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--secondary-text-color);
+        }
+
+        footer p {
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header h2 {
+                font-size: 1em;
+                margin-bottom: 1.5em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li a {
+                padding: 8px 10px;
+                display: block;
+            }
+
+            section {
+                padding: 15px;
+            }
+
+            section h3 {
+                font-size: 1.3em;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .action-button {
+                width: 100%;
+                min-width: unset;
+            }
+
+            #bookGridContainer {
+                grid-template-columns: 1fr;
+            }
+
+            .book-card-item b {
+                display: inline; /* Keep bold in line for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <picture>
+            <source srcset="logo.webp" type="image/webp" />
+            <img src="logo.png" alt="Logotipo do Sebo Menos Telas: desenho de uma pessoa levando vários livros nas mãos" class="logo" />
+        </picture>
+        <h1>Sebo Menos Telas</h1>
+        <h2>Um refúgio de papel em tempos de telas</h2>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#quem-somos">Quem Somos</a></li>
+            <li><a href="#como-comprar">Como Comprar</a></li>
+            <li><a href="#acervo-section">Acervo</a></li>
+            <li><a href="#entregas-retiradas">Entregas e Retiradas</a></li>
+            <li><a href="#doacao-livros">Doe Seus Livros</a></li>
+            <li><a href="#aquisicao-usados">Aquisição de Usados</a></li>
+            <li><a href="#fale-conosco">Fale Conosco</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="quem-somos">
+            <h3>Quem Somos</h3>
+            <p>Desde outubro de 2017, o Sebo Menos Telas é um sebo digital de livros usados em São Paulo, um espaço de resistência contra o excesso de telas. Um abrigo para leitores que ainda sentem o cheiro do papel e escutam, nas páginas, o sussurro das histórias. </p>
+        </section>
+
+        <section id="como-comprar">
+            <h3>Como Comprar</h3>
+            <p>Nossos livros estão disponíveis no mundo virtual, mas o contato permanece humano. Conversamos pessoalmente pelo <a href="https://wa.me/5511981350566" target="_blank" aria-label="Abrir conversa com o Sebo Menos Telas no WhatsApp">WhatsApp</a>, oferecendo um atendimento sempre humanizado e atencioso. Também mantemos uma vitrine no <a href="https://mercadolivre.com.br/perfil/sebomenostelas" target="_blank" rel="noopener noreferrer" lang="pt-BR">Mercado Livre</a>. Não temos loja física.</p>
+        </section>
+
+        <section id="acervo-section">
+            <h3>Nosso Acervo</h3>
+            <p style="text-align: center; margin-bottom: 20px;">Todos os livros disponíveis para venda podem ser garimpados em nosso acervo. Pelo botão "Comprar", você será levado para nosso WhatsApp, onde pode solicitar fotos de um livro que encontrou para conferir exatamente seu estado de conservação e comprar por ali mesmo.</p>
+
+            <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Digite o Título, Autor, Editora, Idioma, etc...">
+
+            <div class="button-container">
+                <button onclick="filterContent()" class="action-button">Garimpar</button>
+                <button onclick="clearSearch()" class="action-button">Limpar</button>
+            </div>
+
+            <div id="resultsCount"></div>
+
+            <div id="bookGridContainer"></div>
+            <div id="noResultsMessage" class="no-results">Nenhum livro encontrado.</div>
+        </section>
+
+        <section id="entregas-retiradas">
+            <h3>Entregas e Retiradas</h3>
+            <p>Na Mooca, em São Paulo, entregamos seu pedido pessoalmente e sem custo. Para outras regiões, combinamos um dia para você retirar no nosso endereço, caso não queira pagar frete, ou enviamos pelos Correios.</p>
+        </section>
+
+        <section id="doacao-livros">
+            <h3>Doe Seus Livros</h3>
+            <p>Se você tem romances, fantasias, suspenses ou contos esquecidos na estante, eles podem ganhar nova vida aqui. Aceitamos doações apenas de livros de ficção. Em São Paulo, a coleta é gratuita e, muitas vezes, no mesmo dia. Para agendar, envie uma <a href="https://wa.me/5511981350566" target="_blank" aria-label="Enviar mensagem de doação de livros pelo WhatsApp">mensagem</a>.</p>
+        </section>
+
+        <section id="aquisicao-usados">
+            <h3>Aquisição de Usados</h3>
+            <p>Adquirimos nossos livros exclusivamente de bazares beneficentes e ONGs, fortalecendo nosso compromisso com causas sociais e contribuindo diretamente para projetos que promovem educação, inclusão e desenvolvimento comunitário.</p>
+        </section>
+
+        <section id="fale-conosco">
+            <h3>Fale Conosco</h3>
+            <p>Não usamos mais nenhuma rede social. Nosso objetivo é claro: menos rolagem infinita, mais livros impressos. Escreva pra gente pelo <a href="https://wa.me/5511981350566" target="_blank" aria-label="Falar com Sebo Menos Telas pelo WhatsApp">WhatsApp</a> ou por <a href="mailto:sebomenostelas@gmail.com">e-mail</a>. Será um prazer atendê-lo.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Sebo Menos Telas – Desde 2017, promovendo a leitura impressa em tempos digitais</p>
+    </footer>
+
+    <script>
+        let allBooks = [];
+
+        window.onload = function () {
+            loadTsvData();
+        };
+
+        async function loadTsvData() {
+            try {
+                // Ajuste o caminho do arquivo TSV se ele não estiver no mesmo nível do HTML
+                const response = await fetch('livros.tsv');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const tsvContent = await response.text();
+                parseTsvContent(tsvContent);
+            } catch (error) {
+                console.error('Erro ao carregar o arquivo TSV:', error);
+                document.getElementById("bookGridContainer").innerHTML = '<p style="text-align: center; color: var(--secondary-text-color);">Erro ao carregar o acervo. Por favor, atualize a página ou abra novamente.</p>';
+                document.getElementById("noResultsMessage").style.display = 'none';
+                document.getElementById("resultsCount").style.display = 'none';
+            }
+        }
+
+        function parseTsvContent(tsvContent) {
+            const lines = tsvContent.split('\n').filter(line => line.trim() !== '');
+            if (lines.length < 2) return;
+
+            const headers = lines[0].split('\t');
+            const precoIndex = headers.findIndex(h => h.toLowerCase().trim() === 'preço');
+            const freteIndex = headers.findIndex(h => h.toLowerCase().trim() === 'frete');
+            const totalIndex = headers.findIndex(h => h.toLowerCase().trim() === 'total');
+            const titleIndex = headers.findIndex(h => h.toLowerCase().trim() === 'título');
+            const authorIndex = headers.findIndex(h => h.toLowerCase().trim() === 'autor');
+
+            for (let i = 1; i < lines.length; i++) {
+                const cells = lines[i].split('\t');
+                if (cells.length === headers.length) {
+                    const book = { html: '' };
+                    for (let j = 0; j < cells.length; j++) {
+                        const header = headers[j].trim();
+                        let value = cells[j].trim();
+
+                        if ([precoIndex, freteIndex, totalIndex].includes(j)) {
+                            const numericValue = parseFloat(value.replace(',', '.'));
+                            value = isNaN(numericValue) ? value : numericValue.toFixed(2).replace('.', ',');
+                        }
+
+                        if (header.toLowerCase() === 'comprar') {
+                            let whatsappLink = '#';
+                            if (titleIndex > -1 && authorIndex > -1) {
+                                const title = cells[titleIndex];
+                                const author = cells[authorIndex];
+                                const message = `Oi! Quero comprar o livro ${title} de ${author}`;
+                                whatsappLink = `https://wa.me/5511981350566?text=${encodeURIComponent(message)}`;
+                            }
+                            book.html += `<a href="${whatsappLink}" class="buy-button" target="_blank">Comprar</a>`;
+                        } else {
+                            if (value) { // Apenas adiciona se houver valor
+                                book.html += `<div class="book-card-item"><b>${header}:</b> ${value}</div>`;
+                            }
+                        }
+                    }
+                    book.html = `<div class="book-card">${book.html}</div>`;
+                    book.text = cells.join(' ').toUpperCase();
+                    allBooks.push(book);
+                }
+            }
+        }
+
+        function filterContent() {
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toUpperCase().trim();
+            let cardsHtml = '';
+            let resultsCount = 0;
+            const resultsCountElement = document.getElementById("resultsCount");
+            const noResultsMessageElement = document.getElementById("noResultsMessage");
+
+            if (filter === "") {
+                document.getElementById("bookGridContainer").innerHTML = '';
+                resultsCountElement.style.display = 'none';
+                noResultsMessageElement.style.display = 'none'; // Esconder quando vazio
+                return;
+            }
+
+            for (let i = 0; i < allBooks.length; i++) {
+                if (allBooks[i].text.indexOf(filter) > -1) {
+                    cardsHtml += allBooks[i].html;
+                    resultsCount++;
+                }
+            }
+
+            document.getElementById("bookGridContainer").innerHTML = cardsHtml;
+
+            if (resultsCount > 0) {
+                resultsCountElement.textContent = `Foram encontrados ${resultsCount} livro(s).`;
+                resultsCountElement.style.display = 'block';
+                noResultsMessageElement.style.display = 'none';
+            } else {
+                resultsCountElement.style.display = 'none';
+                noResultsMessageElement.style.display = 'block';
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                filterContent();
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById("searchInput").value = '';
+            document.getElementById("bookGridContainer").innerHTML = '';
+            document.getElementById("resultsCount").style.display = 'none';
+            document.getElementById("noResultsMessage").style.display = 'none';
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
