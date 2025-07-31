@@ -320,7 +320,7 @@
               if (titleIndex > -1 && authorIndex > -1) {
                 const title = cells[titleIndex];
                 const author = cells[authorIndex];
-                const message = `Oi! Quero comprar o livro ${title} de ${author}`;
+                const message = `Oi! Quero comprar o livro ${title}, de ${author}`;
                 whatsappLink = `https://wa.me/5511981350566?text=${encodeURIComponent(message)}`;
               }
               book.html += `<div class="book-card-item"><a href="${whatsappLink}" class="buy-button" target="_blank">Comprar</a></div>`;
