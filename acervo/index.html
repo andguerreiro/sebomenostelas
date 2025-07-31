@@ -8,26 +8,22 @@
   <meta name="author" content="Sebo Menos Telas" />
   <link rel="canonical" href="https://sebomenostelas.com.br/acervo" />
 
-  <!-- Preload e Favicon -->
   <link rel="preload" as="image" href="../logo.webp" />
   <link rel="icon" href="../logo.webp" type="image/webp" />
 
   <title>Acervo Sebo Menos Telas – Garimpe seu próximo livro</title>
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Acervo Sebo Menos Telas – Garimpe seu próximo livro" />
   <meta property="og:description" content="Explore nosso acervo de livros usados: título, autor, editora, idioma e mais, com atendimento humano via WhatsApp." />
   <meta property="og:image" content="https://sebomenostelas.com.br/logo.webp" />
   <meta property="og:url" content="https://sebomenostelas.com.br/acervo" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Acervo Sebo Menos Telas" />
   <meta name="twitter:description" content="Garimpe seu próximo livro usado em nosso acervo online com atendimento humano pelo WhatsApp." />
   <meta name="twitter:image" content="https://sebomenostelas.com.br/logo.webp" />
 
-  <!-- Schema.org JSON‑LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -77,6 +73,8 @@
       border-radius: 8px;
       font-size: 1em;
       transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      background-color: #fff;
+      color: #000;
     }
 
     #searchInput:focus {
@@ -220,20 +218,10 @@
     }
 
     @media (prefers-color-scheme: dark) {
-      #searchInput {
-        border-color: #fff;
+      body {
+        background-color: #121212;
+        color: #f5f5f5;
       }
-
-      #searchInput:focus {
-        border-color: #fff;
-        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
-      }
-
-      .action-button {
-        color: #fff;
-        border-color: #fff;
-      }
-    }
 
       h2, h2 a,
       .book-card-item b,
@@ -260,6 +248,10 @@
 
       .action-button:hover {
         background-color: #444;
+      }
+
+      #resultsCount {
+        color: #ccc;
       }
 
       .book-card {
@@ -356,7 +348,7 @@
                 const message = `Oi! Quero comprar o livro ${title} de ${author}`;
                 whatsappLink = `https://wa.me/5511981350566?text=${encodeURIComponent(message)}`;
               }
-              book.html += `<div class="book-card-item"><a href="${whatsappLink}" class="buy-button" target="_blank">Comprar</a></div>`;
+              book.html += `<div class="book-card-item"><a href="${whatsappLink}" class="buy-button" target="_blank" rel="noopener noreferrer">Comprar</a></div>`;
             } else {
               book.html += `<div class="book-card-item"><b>${header}:</b> ${value || ''}</div>`;
             }
