@@ -3,15 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sebo Menos Telas – Um convite à leitura impressa, longe das telas. Desde 2017, incentivando o toque do papel e o silêncio das páginas, com atendimento humano e cuidadoso." />
+  <meta name="description" content="Sebo Menos Telas – Sebo online em São Paulo desde 2017, promovendo a leitura de livros usados e impressos com atendimento humano e cuidadoso." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Sebo Menos Telas" />
   <link rel="canonical" href="https://sebomenostelas.com.br/acervo" />
+
+  <!-- Preload e Favicon -->
+  <link rel="preload" as="image" href="../logo.webp" />
+  <link rel="icon" href="../logo.webp" type="image/webp" />
+
   <title>Acervo Sebo Menos Telas – Garimpe seu próximo livro</title>
-  <link rel="icon" href="../logo.png" type="image/png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Acervo Sebo Menos Telas – Garimpe seu próximo livro" />
+  <meta property="og:description" content="Explore nosso acervo de livros usados: título, autor, editora, idioma e mais, com atendimento humano via WhatsApp." />
+  <meta property="og:image" content="https://sebomenostelas.com.br/logo.webp" />
+  <meta property="og:url" content="https://sebomenostelas.com.br/acervo" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Acervo Sebo Menos Telas" />
+  <meta name="twitter:description" content="Garimpe seu próximo livro usado em nosso acervo online com atendimento humano pelo WhatsApp." />
+  <meta name="twitter:image" content="https://sebomenostelas.com.br/logo.webp" />
+
+  <!-- Schema.org JSON‑LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BookStore",
+    "name": "Sebo Menos Telas",
+    "url": "https://sebomenostelas.com.br",
+    "logo": "https://sebomenostelas.com.br/logo.webp",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-11-98135-0566",
+      "contactType": "Customer Service"
+    }
+  }
+  </script>
+
   <style>
+    :root {
+      color-scheme: light dark;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 20px;
       color: #000;
       background-color: #fff;
@@ -181,22 +219,21 @@
       }
     }
 
-    /* DARK MODE */
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #121212;
-        color: #e0e0e0;
+        color: #f5f5f5;
       }
 
       h2, h2 a,
       .book-card-item b,
       #resultsCount {
-        color: #e0e0e0;
+        color: #f5f5f5;
       }
 
       #searchInput {
         background-color: #1e1e1e;
-        color: #e0e0e0;
+        color: #f5f5f5;
         border-color: #444;
       }
 
@@ -207,7 +244,7 @@
 
       .action-button {
         background-color: #333;
-        color: #e0e0e0;
+        color: #f5f5f5;
         border-color: #555;
       }
 
