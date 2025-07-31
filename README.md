@@ -2,7 +2,7 @@
 
 ### Um refúgio de papel em tempos de telas
 
-Site: [sebomenostelas.com.br](https://sebomenostelas.com.br)
+Página: [sebomenostelas.com.br](https://sebomenostelas.com.br)
 
 Acervo: [sebomenostelas.com.br/acervo](https://sebomenostelas.com.br/acervo)
 
