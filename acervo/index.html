@@ -19,11 +19,6 @@
   <meta property="og:url" content="https://sebomenostelas.com.br/acervo" />
   <meta property="og:type" content="website" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Acervo Sebo Menos Telas" />
-  <meta name="twitter:description" content="Garimpe seu próximo livro usado em nosso acervo online com atendimento humano pelo WhatsApp." />
-  <meta name="twitter:image" content="https://sebomenostelas.com.br/logo.webp" />
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -77,6 +72,7 @@
       color: #000;
     }
 
+    #searchInput:hover,
     #searchInput:focus {
       outline: none;
       border-color: #000;
@@ -157,6 +153,7 @@
       margin-top: 10px;
       justify-self: center;
       width: fit-content;
+      border: none;
     }
 
     .buy-button:hover {
@@ -218,26 +215,16 @@
     }
 
     @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #f5f5f5;
-      }
-
-      h2, h2 a,
-      .book-card-item b,
-      #resultsCount {
-        color: #f5f5f5;
-      }
-
       #searchInput {
         background-color: #1e1e1e;
         color: #f5f5f5;
         border-color: #444;
       }
 
+      #searchInput:hover,
       #searchInput:focus {
-        border-color: #90caf9;
-        box-shadow: 0 0 0 3px rgba(144,202,249,0.2);
+        border-color: #fff; /* borda branca no hover/focus */
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
       }
 
       .action-button {
@@ -250,10 +237,6 @@
         background-color: #444;
       }
 
-      #resultsCount {
-        color: #ccc;
-      }
-
       .book-card {
         background-color: #1e1e1e;
         border-color: #333;
@@ -261,12 +244,13 @@
       }
 
       .buy-button {
-        background-color: #90caf9;
-        color: #000;
+        background-color: #fff !important; /* fundo branco */
+        color: #000 !important;
+        border: 1px solid #000 !important;
       }
 
       .buy-button:hover {
-        background-color: #64b5f6;
+        background-color: #ddd !important;
       }
 
       .no-results {
@@ -348,7 +332,7 @@
                 const message = `Oi! Quero comprar o livro ${title} de ${author}`;
                 whatsappLink = `https://wa.me/5511981350566?text=${encodeURIComponent(message)}`;
               }
-              book.html += `<div class="book-card-item"><a href="${whatsappLink}" class="buy-button" target="_blank" rel="noopener noreferrer">Comprar</a></div>`;
+              book.html += `<div class="book-card-item"><a href="${whatsappLink}" class="buy-button" target="_blank">Comprar</a></div>`;
             } else {
               book.html += `<div class="book-card-item"><b>${header}:</b> ${value || ''}</div>`;
             }
