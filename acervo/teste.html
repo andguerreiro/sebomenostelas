@@ -41,6 +41,7 @@
             --primary-text-color: #000;
             --secondary-text-color: #666;
             --background-color: #fff;
+            --section-bg-color: #fff;
             --border-color: #ccc;
             --button-bg-color: #000;
             --button-text-color: #fff;
@@ -53,6 +54,7 @@
                 --primary-text-color: #f5f5f5;
                 --secondary-text-color: #aaa;
                 --background-color: #121212;
+                --section-bg-color: #1e1e1e;
                 --border-color: #444;
                 --button-bg-color: #333;
                 --button-text-color: #f5f5f5;
@@ -72,7 +74,7 @@
         }
 
         .container {
-            max-width: 960px; /* Aumentado para acomodar o acervo */
+            max-width: 960px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -120,7 +122,7 @@
             font-size: 1.1em;
             font-weight: normal;
             margin-top: -0.5em;
-            margin-bottom: 2em;
+            margin-bottom: 0; /* MUITO GRUDADO: Margem inferior zero */
             color: var(--secondary-text-color);
         }
 
@@ -130,6 +132,12 @@
             padding: 10px 0;
             margin-bottom: 30px;
             box-shadow: 0 2px 5px var(--shadow-color);
+            transition: opacity 0.5s ease-in-out; /* Adicionando transição */
+        }
+
+        nav.hidden { /* Classe para esconder o menu */
+            display: none;
+            opacity: 0;
         }
 
         nav ul {
@@ -138,7 +146,7 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+            flex-wrap: wrap;
             gap: 20px;
         }
 
@@ -149,7 +157,7 @@
             padding: 8px 15px;
             border-radius: 4px;
             transition: background-color 0.2s ease;
-            white-space: nowrap; /* Evita que o texto quebre */
+            white-space: nowrap;
         }
 
         nav ul li a:hover {
@@ -157,34 +165,22 @@
             color: var(--button-text-color);
         }
 
-        /* Main Content Sections */
-        section {
-            margin-bottom: 3em;
-            padding: 20px;
-            background-color: var(--background-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px var(--shadow-color);
-        }
-
-        section h3 {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 1em;
-            color: var(--primary-text-color);
+        /* Search Container - Integrated with Header and now even tighter */
+        .search-container {
+            max-width: 600px;
+            margin: -5px auto 20px auto; /* MUITO GRUDADO: Margem superior negativa para subir mais */
+            padding: 10px 20px;
             text-align: center;
-        }
-
-        /* Acervo Section Specific Styles */
-        #acervo-section h3 {
-            margin-bottom: 25px;
+            background-color: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
         }
 
         #searchInput {
             width: 100%;
-            max-width: 600px;
-            padding: 12px 15px;
-            margin: 0 auto 15px auto;
-            display: block;
+            padding: 10px 12px;
+            margin-bottom: 10px;
             box-sizing: border-box;
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -197,30 +193,69 @@
         #searchInput:focus {
             outline: none;
             border-color: var(--primary-text-color);
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); /* Ajustado para clareza */
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
         }
 
         .button-container {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 25px;
         }
 
         .action-button {
-            padding: 10px 20px;
+            padding: 8px 15px;
             font-size: 1em;
-            border-radius: 44px;
+            border-radius: 4px;
             cursor: pointer;
             border: 1px solid var(--button-bg-color);
             background-color: var(--button-bg-color);
             color: var(--button-text-color);
             transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-            min-width: 120px;
+            min-width: 100px;
         }
 
         .action-button:hover {
             background-color: var(--secondary-text-color);
+        }
+
+        /* Main Content Sections */
+        main {
+            transition: opacity 0.5s ease-in-out; /* Transição para o main sumir/aparecer suavemente */
+        }
+        main.hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        section {
+            margin-bottom: 3em;
+            padding: 20px;
+            background-color: var(--section-bg-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        section h3 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 1em;
+            color: var(--primary-text-color);
+            text-align: center;
+        }
+
+        /* Container exclusivo para exibir os resultados da busca */
+        #resultsContainer {
+            max-width: 960px; /* Para centralizar como o .container */
+            margin: 40px auto; /* Para espaçamento semelhante ao .container */
+            padding: 20px;
+            background-color: var(--section-bg-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            display: none; /* Inicia oculto */
+        }
+
+        #resultsContainer.visible {
+            display: block; /* Torna visível quando há resultados de busca */
         }
 
         #resultsCount {
@@ -228,12 +263,13 @@
             margin-bottom: 25px;
             font-weight: bold;
             color: var(--secondary-text-color);
-            display: none;
+            display: none; /* Controlado por JS */
+            padding-top: 0;
         }
 
         #bookGridContainer {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mais flexível */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             padding-bottom: 20px;
         }
@@ -244,7 +280,7 @@
             border-radius: 8px;
             padding: 15px;
             box-shadow: 0 2px 4px var(--shadow-color);
-            display: flex; /* Usar flexbox para layout interno */
+            display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: transform 0.2s ease-in-out;
@@ -256,13 +292,13 @@
 
         .book-card-item {
             line-height: 1.4;
-            margin-bottom: 5px; /* Espaçamento entre itens */
+            margin-bottom: 5px;
         }
 
         .book-card-item b {
             font-size: 0.9em;
             color: var(--primary-text-color);
-            display: inline; /* Mostrar o bold na mesma linha */
+            display: inline;
         }
 
         .buy-button {
@@ -289,6 +325,8 @@
             margin-top: 50px;
             display: none;
         }
+
+        /* #backToInfoButton removido */
 
         /* Footer */
         footer {
@@ -317,7 +355,7 @@
 
             header h2 {
                 font-size: 1em;
-                margin-bottom: 1.5em;
+                margin-bottom: 0; /* MUITO GRUDADO */
             }
 
             nav ul {
@@ -328,6 +366,21 @@
             nav ul li a {
                 padding: 8px 10px;
                 display: block;
+            }
+
+            .search-container {
+                margin: -5px auto 15px auto; /* MUITO GRUDADO */
+                padding: 10px 15px;
+            }
+
+            #searchInput {
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+
+            .action-button {
+                padding: 8px 12px;
+                min-width: 80px;
             }
 
             section {
@@ -352,7 +405,12 @@
             }
 
             .book-card-item b {
-                display: inline; /* Keep bold in line for mobile */
+                display: inline;
+            }
+
+            #resultsContainer {
+                margin: 20px auto; /* Ajuste para mobile */
+                padding: 15px;
             }
         }
     </style>
@@ -367,6 +425,14 @@
         <h2>Um refúgio de papel em tempos de telas</h2>
     </header>
 
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Digite o Título, Autor, Editora, Idioma, etc...">
+        <div class="button-container">
+            <button onclick="filterContent()" class="action-button">Garimpar</button>
+            <button onclick="clearSearch()" class="action-button">Limpar</button>
+        </div>
+    </div>
+
     <nav>
         <ul>
             <li><a href="#quem-somos">Quem Somos</a></li>
@@ -378,6 +444,12 @@
             <li><a href="#fale-conosco">Fale Conosco</a></li>
         </ul>
     </nav>
+
+    <div id="resultsContainer">
+        <div id="resultsCount"></div>
+        <div id="bookGridContainer"></div>
+        <div id="noResultsMessage" class="no-results">Nenhum livro encontrado.</div>
+        </div>
 
     <main class="container">
         <section id="quem-somos">
@@ -392,19 +464,7 @@
 
         <section id="acervo-section">
             <h3>Nosso Acervo</h3>
-            <p style="text-align: center; margin-bottom: 20px;">Todos os livros disponíveis para venda podem ser garimpados em nosso acervo. Pelo botão "Comprar", você será levado para nosso WhatsApp, onde pode solicitar fotos de um livro que encontrou para conferir exatamente seu estado de conservação e comprar por ali mesmo.</p>
-
-            <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Digite o Título, Autor, Editora, Idioma, etc...">
-
-            <div class="button-container">
-                <button onclick="filterContent()" class="action-button">Garimpar</button>
-                <button onclick="clearSearch()" class="action-button">Limpar</button>
-            </div>
-
-            <div id="resultsCount"></div>
-
-            <div id="bookGridContainer"></div>
-            <div id="noResultsMessage" class="no-results">Nenhum livro encontrado.</div>
+            <p>Todos os livros disponíveis para venda podem ser garimpados em nosso acervo. Pelo botão "Comprar", você será levado para nosso WhatsApp, onde pode solicitar fotos de um livro que encontrou para conferir exatamente seu estado de conservação e comprar por ali mesmo.</p>
         </section>
 
         <section id="entregas-retiradas">
@@ -441,7 +501,6 @@
 
         async function loadTsvData() {
             try {
-                // Ajuste o caminho do arquivo TSV se ele não estiver no mesmo nível do HTML
                 const response = await fetch('livros.tsv');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const tsvContent = await response.text();
@@ -488,7 +547,7 @@
                             }
                             book.html += `<a href="${whatsappLink}" class="buy-button" target="_blank">Comprar</a>`;
                         } else {
-                            if (value) { // Apenas adiciona se houver valor
+                            if (value) {
                                 book.html += `<div class="book-card-item"><b>${header}:</b> ${value}</div>`;
                             }
                         }
@@ -507,11 +566,26 @@
             let resultsCount = 0;
             const resultsCountElement = document.getElementById("resultsCount");
             const noResultsMessageElement = document.getElementById("noResultsMessage");
+            // const backButton = document.getElementById("backToInfoButton"); // Removido
+            const mainContent = document.querySelector('main');
+            const navMenu = document.querySelector('nav');
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            // Oculta todo o conteúdo principal (main) e o menu
+            mainContent.classList.add('hidden');
+            navMenu.classList.add('hidden');
+
+            // Mostra o container de resultados
+            resultsContainer.classList.add('visible');
 
             if (filter === "") {
+                // Se a busca estiver vazia, age como um "limpar"
                 document.getElementById("bookGridContainer").innerHTML = '';
                 resultsCountElement.style.display = 'none';
-                noResultsMessageElement.style.display = 'none'; // Esconder quando vazio
+                noResultsMessageElement.style.display = 'none';
+                // backButton.style.display = 'none'; // Removido
+                resultsContainer.classList.remove('visible');
+                showAllSections(); // Volta para o estado inicial
                 return;
             }
 
@@ -532,6 +606,8 @@
                 resultsCountElement.style.display = 'none';
                 noResultsMessageElement.style.display = 'block';
             }
+
+            // backButton.style.display = 'block'; // Removido
         }
 
         function handleKeyPress(event) {
@@ -545,16 +621,48 @@
             document.getElementById("bookGridContainer").innerHTML = '';
             document.getElementById("resultsCount").style.display = 'none';
             document.getElementById("noResultsMessage").style.display = 'none';
+            // document.getElementById("backToInfoButton").style.display = 'none'; // Removido
+            document.getElementById('resultsContainer').classList.remove('visible'); // Oculta o container de resultados
+            showAllSections(); // Volta para o estado inicial
+        }
+
+        function showAllSections() {
+            const mainContent = document.querySelector('main');
+            const navMenu = document.querySelector('nav');
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            mainContent.classList.remove('hidden'); // Torna o main visível novamente
+            navMenu.classList.remove('hidden'); // Mostra o menu
+            resultsContainer.classList.remove('visible'); // Garante que o container de resultados está oculto
+
+            // document.getElementById("backToInfoButton").style.display = 'none'; // Removido
+            document.getElementById("searchInput").value = '';
+            document.getElementById("bookGridContainer").innerHTML = '';
+            document.getElementById("resultsCount").style.display = 'none';
+            document.getElementById("noResultsMessage").style.display = 'none';
         }
 
         // Smooth scroll for navigation
         document.querySelectorAll('nav ul li a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                showAllSections(); // Garante que todas as seções estão visíveis antes de rolar
+
+                // Pequeno atraso para a transição 'hidden' ser aplicada antes do scroll
+                setTimeout(() => {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }, 100);
             });
+        });
+
+        // Garantir que ao carregar a página, o container de resultados esteja oculto e o main e nav visíveis
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('resultsContainer').classList.remove('visible');
+            document.querySelector('main').classList.remove('hidden');
+            document.querySelector('nav').classList.remove('hidden');
         });
     </script>
 </body>
