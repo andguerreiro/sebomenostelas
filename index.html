@@ -3,12 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sebo Menos Telas – Um convite à leitura impressa, longe das telas. Desde 2017, incentivando o toque do papel e o silêncio das páginas, com atendimento humano e cuidadoso." />
+  <meta name="description" content="Sebo Menos Telas – Sebo online em São Paulo desde 2017, promovendo a leitura de livros usados e impressos com atendimento humano e cuidadoso." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Sebo Menos Telas" />
   <link rel="canonical" href="https://sebomenostelas.com.br/" />
+
+  <!-- Preload imagem principal -->
+  <link rel="preload" as="image" href="logo.webp" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.webp" type="image/webp" />
+
   <title>Sebo Menos Telas – Um refúgio de papel em tempos de telas</title>
-  <link rel="icon" href="logo.png" type="image/png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sebo Menos Telas – Um refúgio de papel em tempos de telas" />
+  <meta property="og:description" content="Desde 2017, incentivando o toque do papel e o silêncio das páginas, com atendimento humano e cuidadoso." />
+  <meta property="og:image" content="https://sebomenostelas.com.br/logo.webp" />
+  <meta property="og:url" content="https://sebomenostelas.com.br/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sebo Menos Telas" />
+  <meta name="twitter:description" content="Um refúgio de papel em tempos de telas" />
+  <meta name="twitter:image" content="https://sebomenostelas.com.br/logo.webp" />
+
+  <!-- Dados estruturados (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BookStore",
+    "name": "Sebo Menos Telas",
+    "url": "https://sebomenostelas.com.br",
+    "logo": "https://sebomenostelas.com.br/logo.webp",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-11-98135-0566",
+      "contactType": "Customer Service"
+    }
+  }
+  </script>
 
   <style>
     :root {
@@ -33,7 +68,7 @@
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #121212;
-        color: #e0e0e0;
+        color: #f5f5f5;
       }
 
       a {
@@ -41,7 +76,7 @@
       }
     }
 
-    img.logo {
+    picture img.logo {
       display: block;
       width: 160px;
       height: 160px;
@@ -91,7 +126,10 @@
 
 <body>
   <header>
-    <img src="logo.png" alt="Logotipo do Sebo Menos Telas" class="logo" />
+    <picture>
+      <source srcset="logo.webp" type="image/webp" />
+      <img src="logo.png" alt="Logotipo do Sebo Menos Telas: um livro estilizado em preto e branco" class="logo" />
+    </picture>
     <h1>Sebo Menos Telas</h1>
     <h2>Um refúgio de papel em tempos de telas</h2>
   </header>
@@ -99,27 +137,27 @@
   <main>
     <section>
       <h3>Quem Somos</h3>
-      <p>Desde outubro de 2017, o Sebo Menos Telas é um espaço de resistência contra o excesso de telas. Um abrigo para leitores que ainda sentem o cheiro do papel e escutam, nas páginas, o sussurro das histórias.</p>
+      <p>Desde outubro de 2017, o Sebo Menos Telas é um sebo digital de livros usados em São Paulo, um espaço de resistência contra o excesso de telas. Um abrigo para leitores que ainda sentem o cheiro do papel e escutam, nas páginas, o sussurro das histórias.</p>
     </section>
 
     <section>
       <h3>Como Comprar</h3>
-      <p>Nossos livros estão disponíveis no mundo virtual, mas o contato permanece humano. Conversamos pessoalmente pelo <a href="https://wa.me/5511981350566" target="_blank">WhatsApp</a>, oferecendo um atendimento sempre humanizado e atencioso. Também mantemos uma vitrine no <a href="https://mercadolivre.com.br/perfil/sebomenostelas" target="_blank">Mercado Livre</a>. Não temos loja física.</p>
+      <p>Nossos livros estão disponíveis no mundo virtual, mas o contato permanece humano. Conversamos pessoalmente pelo <a href="https://wa.me/5511981350566" target="_blank" aria-label="Abrir conversa com o Sebo Menos Telas no WhatsApp">WhatsApp</a>, oferecendo um atendimento sempre humanizado e atencioso. Também mantemos uma vitrine no <a href="https://mercadolivre.com.br/perfil/sebomenostelas" target="_blank" rel="noopener noreferrer" lang="pt-BR">Mercado Livre</a>. Não temos loja física.</p>
     </section>
 
     <section>
       <h3>Nosso Acervo</h3>
-      <p>Todos os livros disponíveis para venda podem ser garimpados em nosso <a href="acervo">acervo</a>. Nele, você encontrará detalhes sobre cada exemplar: nome, autor, editora, idioma, entre outras informações. O valor do frete é conforme a tabela dos Correios e vale para todo o Brasil. Pelo botão "Comprar", você será levado para nosso WhatsApp onde pode solicitar fotos de um livro que encontrou para conferir exatamente seu estado de conservação e comprar por ali mesmo.</p>
+      <p>Todos os livros disponíveis para venda podem ser garimpados em nosso <a href="acervo">acervo</a>. Nele, você encontrará detalhes sobre cada exemplar: nome, autor, editora, idioma, entre outras informações. O valor do frete é conforme a tabela dos Correios e vale para todo o Brasil. Pelo botão "Comprar", você será levado para nosso WhatsApp, onde pode solicitar fotos de um livro que encontrou para conferir exatamente seu estado de conservação e comprar por ali mesmo.</p>
     </section>
 
     <section>
       <h3>Entregas em São Paulo</h3>
-      <p>Na Mooca, um bairro de histórias antigas, como muitos dos livros que oferecemos, entregamos seu pedido pessoalmente e sem custo. Para outras regiões da cidade, combinamos um dia para você retirar no nosso endereço, caso não queira pagar frete.</p>
+      <p>Na Mooca, um bairro de histórias antigas como muitos dos livros que oferecemos, entregamos seu pedido pessoalmente e sem custo. Para outras regiões da cidade, combinamos um dia para você retirar no nosso endereço, caso não queira pagar frete.</p>
     </section>
 
     <section>
       <h3>Doe Seus Livros</h3>
-      <p>Se você tem romances, fantasias, suspenses ou contos esquecidos na estante, eles podem ganhar nova vida aqui. Aceitamos doações de livros de ficção com alegria e gratidão. Em São Paulo, a coleta é gratuita e, muitas vezes, no mesmo dia. Para agendar, envie uma <a href="https://wa.me/5511981350566" target="_blank">mensagem</a>.</p>
+      <p>Se você tem romances, fantasias, suspenses ou contos esquecidos na estante, eles podem ganhar nova vida aqui. Aceitamos doações de livros de ficção com alegria e gratidão. Em São Paulo, a coleta é gratuita e, muitas vezes, no mesmo dia. Para agendar, envie uma <a href="https://wa.me/5511981350566" target="_blank" aria-label="Enviar mensagem de doação de livros pelo WhatsApp">mensagem</a>.</p>
     </section>
 
     <section>
@@ -129,7 +167,7 @@
 
     <section>
       <h3>Fale Conosco</h3>
-      <p>Não estamos nas redes sociais. Nosso objetivo é claro: menos rolagem infinita, mais livros impressos. Escreva pra gente pelo <a href="https://wa.me/5511981350566" target="_blank">WhatsApp</a> ou para <a href="mailto:sebomenostelas@gmail.com">sebomenostelas@gmail.com</a>. Será um prazer atendê-lo.</p>
+      <p>Não estamos nas redes sociais. Nosso objetivo é claro: menos rolagem infinita, mais livros impressos. Escreva pra gente pelo <a href="https://wa.me/5511981350566" target="_blank" aria-label="Falar com Sebo Menos Telas pelo WhatsApp">WhatsApp</a> ou para <a href="mailto:sebomenostelas@gmail.com">sebomenostelas@gmail.com</a>. Será um prazer atendê-lo.</p>
     </section>
   </main>
 
