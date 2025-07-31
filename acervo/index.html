@@ -304,7 +304,7 @@
         parseTsvContent(tsvContent);
       } catch (error) {
         console.error('Erro ao carregar o arquivo TSV:', error);
-        document.getElementById("bookGridContainer").innerHTML = '<p>Erro ao carregar o acervo. Por favor, tente novamente mais tarde.</p>';
+        document.getElementById("bookGridContainer").innerHTML = '<p>Erro ao carregar o acervo. Por favor, atualize a página ou abra novamente.</p>';
         document.getElementById("noResultsMessage").style.display = 'none';
         document.getElementById("resultsCount").style.display = 'none';
       }
