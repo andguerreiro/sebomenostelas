@@ -1,6 +1,6 @@
 # Sebo Menos Telas
 
-### Se um livro ler, as telas vai esquecer
+### Se um livro ler, as telas vais esquecer
 
 Site: [sebomenostelas.com.br](https://sebomenostelas.com.br)
 
