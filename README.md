@@ -1,6 +1,6 @@
 # Sebo Menos Telas
 
-### Um refúgio de papel em tempos de telas
+### Se um livro ler, as telas vai esquecer
 
 Site: [sebomenostelas.com.br](https://sebomenostelas.com.br)
 
