@@ -295,42 +295,41 @@
       const lines = tsvContent.split('\n').filter(line => line.trim() !== '');
       if (lines.length < 2) return;
 
-      const headers = lines[0].split('\t');
-      const precoIndex = headers.findIndex(h => h.toLowerCase().trim() === 'preço r$');
-      const freteIndex = headers.findIndex(h => h.toLowerCase().trim() === 'frete r$');
-      const totalIndex = headers.findIndex(h => h.toLowerCase().trim() === 'total r$');
-      const titleIndex = headers.findIndex(h => h.toLowerCase().trim() === 'título');
-      const authorIndex = headers.findIndex(h => h.toLowerCase().trim() === 'autor');
-      const fotosIndex = headers.findIndex(h => h.toLowerCase().trim() === 'fotos');
+      const headers = lines[0].split('\t').map(h => h.trim());
+      const headersLower = headers.map(h => h.toLowerCase());
+
+      const precoIndex = headersLower.findIndex(h => h.includes('preço'));
+      const freteIndex = headersLower.findIndex(h => h.includes('frete'));
+      const totalIndex = headersLower.findIndex(h => h.includes('total'));
+      const fotosIndex = headersLower.findIndex(h => h === 'fotos');
+      const titleIndex = headersLower.findIndex(h => h === 'título');
+      const authorIndex = headersLower.findIndex(h => h === 'autor');
+
+      allBooks = []; // limpa array antes
 
       for (let i = 1; i < lines.length; i++) {
         const cells = lines[i].split('\t');
         if (cells.length === headers.length) {
           let bookHtml = '';
           for (let j = 0; j < cells.length; j++) {
-            const header = headers[j].trim();
+            const headerOriginal = headers[j]; // mantém maiúsculas e espaços para exibir
             let value = cells[j].trim();
 
             if ([precoIndex, freteIndex, totalIndex].includes(j)) {
+              // formatar números com duas casas decimais e vírgula decimal
               const numericValue = parseFloat(value.replace(',', '.'));
-              if (!isNaN(numericValue)) {
-                value = numericValue.toFixed(2).replace('.', ',');
-              } else {
-                value = value || '';
-              }
+              value = isNaN(numericValue) ? value : numericValue.toFixed(2).replace('.', ',');
             }
 
-            if (header.toLowerCase() === 'fotos') {
-              const whatsappLink = value || '#';
-              bookHtml += `<div class="book-card-item"><a href="${whatsappLink}" class="buy-button" target="_blank" rel="noopener noreferrer">Fotos</a></div>`;
+            if (j === fotosIndex) {
+              // botão "Fotos" com o link do TSV
+              bookHtml += `<div class="book-card-item"><a href="${value}" class="buy-button" target="_blank" rel="noopener noreferrer">Fotos</a></div>`;
             } else {
-              bookHtml += `<div class="book-card-item"><b>${header}:</b> ${value}</div>`;
+              bookHtml += `<div class="book-card-item"><b>${headerOriginal}:</b> ${value || ''}</div>`;
             }
           }
-          allBooks.push({
-            html: `<div class="book-card">${bookHtml}</div>`,
-            text: cells.join(' ').toUpperCase()
-          });
+          bookHtml = `<div class="book-card">${bookHtml}</div>`;
+          allBooks.push({ html: bookHtml, text: cells.join(' ').toUpperCase() });
         }
       }
     }
