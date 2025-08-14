@@ -8,4 +8,4 @@ Acervo: [sebomenostelas.com.br/acervo](https://sebomenostelas.com.br/acervo)
 
 Por [Andrews Guerreiro](https://github.com/andguerreiro)
 
-[Shakespeare icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/shakespeare "shakespeare icons")
+Ícone criado por Freepik e baixado de [Flaticon](https://www.flaticon.com/free-icons/shakespeare)
