@@ -67,21 +67,23 @@
     margin-bottom: 15px;
   }
 
-  .action-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    border: 1px solid #000;
+  .button {
+    display: inline-block;
     background-color: #000;
     color: white;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
     min-width: 120px;
     font-family: inherit;
+    text-align: center;
   }
 
-  .action-button:hover {
+  .button:hover {
     background-color: #444;
   }
 
@@ -121,25 +123,6 @@
     font-size: 0.9em;
     color: #000;
     margin-bottom: 2px;
-  }
-
-  .buy-button {
-    grid-column: 1 / -1;
-    display: block;
-    background-color: #000;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.2s ease-in-out;
-    margin-top: 10px;
-    justify-self: center;
-    width: fit-content;
-  }
-
-  .buy-button:hover {
-    background-color: #444;
   }
 
   .no-results {
@@ -190,7 +173,7 @@
       margin-bottom: 0;
     }
 
-    .buy-button {
+    .button {
       margin-top: 10px;
       justify-self: stretch;
     }
@@ -220,29 +203,19 @@
       box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
     }
 
-    .action-button {
-      background-color: #333;
-      color: #f5f5f5;
-      border-color: #555;
+    .button {
+      background-color: #fff;
+      color: #000;
     }
 
-    .action-button:hover {
-      background-color: #444;
+    .button:hover {
+      background-color: #ddd;
     }
 
     .book-card {
       background-color: #1e1e1e;
       border-color: #333;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    }
-
-    .buy-button {
-      background-color: #fff;
-      color: #000;
-    }
-
-    .buy-button:hover {
-      background-color: #ddd;
     }
 
     .no-results {
@@ -263,8 +236,8 @@
   <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Digite o Título, Autor, Editora, Idioma, etc...">
 
   <div class="button-container">
-    <button onclick="filterContent()" class="action-button">Garimpar</button>
-    <button onclick="clearSearch()" class="action-button">Limpar</button>
+    <button onclick="filterContent()" class="button">Garimpar</button>
+    <button onclick="clearSearch()" class="button">Limpar</button>
   </div>
 
   <div id="resultsCount"></div>
@@ -325,7 +298,7 @@
 
             if (j === fotosIndex) {
               // botão "Fotos" com o link do TSV
-              bookHtml += `<div class="book-card-item"><a href="${value}" class="buy-button" target="_blank" rel="noopener noreferrer">Fotos</a></div>`;
+              bookHtml += `<div class="book-card-item"><a href="${value}" class="button" target="_blank" rel="noopener noreferrer">Fotos</a></div>`;
             } else {
               bookHtml += `<div class="book-card-item"><b>${headerOriginal}:</b> ${value || ''}</div>`;
             }
