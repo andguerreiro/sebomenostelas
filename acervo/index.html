@@ -67,23 +67,43 @@
     margin-bottom: 15px;
   }
 
-  .button {
-    display: inline-block;
-    background-color: #000;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.2s ease-in-out;
-    cursor: pointer;
-    border: none;
-    min-width: 120px;
+  /* Unificação das fontes */
+  .action-button,
+  .msg-button {
     font-family: inherit;
-    text-align: center;
+    font-weight: 600;
   }
 
-  .button:hover {
+  .action-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #000;
+    background-color: #000;
+    color: white;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    min-width: 120px;
+  }
+
+  .action-button:hover {
+    background-color: #444;
+  }
+
+  .msg-button {
+    display: block;
+    background-color: #000;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 10px;
+    justify-self: center;
+    width: fit-content;
+  }
+
+  .msg-button:hover {
     background-color: #444;
   }
 
@@ -173,7 +193,7 @@
       margin-bottom: 0;
     }
 
-    .button {
+    .msg-button {
       margin-top: 10px;
       justify-self: stretch;
     }
@@ -203,12 +223,22 @@
       box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
     }
 
-    .button {
+    .action-button {
+      background-color: #333;
+      color: #f5f5f5;
+      border-color: #555;
+    }
+
+    .action-button:hover {
+      background-color: #444;
+    }
+
+    .msg-button {
       background-color: #fff;
       color: #000;
     }
 
-    .button:hover {
+    .msg-button:hover {
       background-color: #ddd;
     }
 
@@ -236,8 +266,8 @@
   <input type="text" id="searchInput" onkeydown="handleKeyPress(event)" placeholder="Digite o Título, Autor, Editora, Idioma, etc...">
 
   <div class="button-container">
-    <button onclick="filterContent()" class="button">Garimpar</button>
-    <button onclick="clearSearch()" class="button">Limpar</button>
+    <button onclick="filterContent()" class="action-button">Garimpar</button>
+    <button onclick="clearSearch()" class="action-button">Limpar</button>
   </div>
 
   <div id="resultsCount"></div>
@@ -291,14 +321,13 @@
             let value = cells[j].trim();
 
             if ([precoIndex, freteIndex, totalIndex].includes(j)) {
-              // formatar números com duas casas decimais e vírgula decimal
               const numericValue = parseFloat(value.replace(',', '.'));
               value = isNaN(numericValue) ? value : numericValue.toFixed(2).replace('.', ',');
             }
 
             if (j === fotosIndex) {
-              // botão "Fotos" com o link do TSV
-              bookHtml += `<div class="book-card-item"><a href="${value}" class="button" target="_blank" rel="noopener noreferrer">Fotos</a></div>`;
+              // botão "Fotos" com a nova classe msg-button
+              bookHtml += `<div class="book-card-item"><a href="${value}" class="msg-button" target="_blank" rel="noopener noreferrer">Fotos</a></div>`;
             } else {
               bookHtml += `<div class="book-card-item"><b>${headerOriginal}:</b> ${value || ''}</div>`;
             }
