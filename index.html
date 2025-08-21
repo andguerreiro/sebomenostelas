@@ -12,18 +12,61 @@
 
   <title>Sebo Menos Telas – Se um livro você ler, das telas vai esquecer</title>
 
+  <!-- Open Graph -->
   <meta property="og:title" content="Sebo Menos Telas – Se um livro você ler, das telas vai esquecer" />
   <meta property="og:description" content="Sebo digital em São Paulo desde 2017, promovendo a leitura de livros usados e impressos com atendimento humano e cuidadoso." />
   <meta property="og:image" content="https://sebomenostelas.com.br/logo.webp" />
   <meta property="og:url" content="https://sebomenostelas.com.br/" />
   <meta property="og:type" content="website" />
-</head>
 
-<body style="margin:0; height:100vh;">
-  <iframe 
-    src="https://docs.google.com/gview?url=https://sebomenostelas.com.br/sebo_menos_telas.pdf&embedded=true" 
-    style="width:100%; height:100%; border:none;" 
-    frameborder="0">
-  </iframe>
+  <!-- Estilos do spinner -->
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      text-align: center;
+      flex-direction: column;
+    }
+    .spinner {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #1a73e8;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+  </style>
+
+  <!-- Redirecionamento super rápido -->
+  <script>
+    setTimeout(function() {
+      window.location.href = "https://docs.google.com/gview?url=https://sebomenostelas.com.br/sebo_menos_telas.pdf";
+    }, 100); // 100 ms
+  </script>
+
+  <!-- Fallback caso o JS esteja desativado -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; URL='https://docs.google.com/gview?url=https://sebomenostelas.com.br/sebo_menos_telas.pdf'" />
+  </noscript>
+</head>
+<body>
+  <div class="spinner"></div>
+  Carregando PDF...<br>
+  Se não for redirecionado automaticamente, <a href="https://docs.google.com/gview?url=https://sebomenostelas.com.br/sebo_menos_telas.pdf">clique aqui</a>.
 </body>
 </html>
