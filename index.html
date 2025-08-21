@@ -25,7 +25,7 @@
 
     body {
       max-width: 720px;
-      margin: 40px auto;
+      margin: 100px auto 40px; 
       padding: 0 20px;
       font-family: Georgia, 'Times New Roman', serif;
       font-size: clamp(16px, 2.5vw, 19px);
@@ -87,10 +87,86 @@
         color: #f0f0f0;
       }
     }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: inherit;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+
+    .search-form {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .search-input {
+      padding: 10px 40px 10px 10px;
+      width: 100%;
+      font-size: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .search-input:focus {
+      border-color: #000;
+      outline: none;
+    }
+
+    .search-input::placeholder {
+      color: #888;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      color: currentColor;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
   </style>
 </head>
 
 <body>
+  <header>
+    <form class="search-form" action="https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas" method="get">
+      <input type="hidden" name="nsCat" value="Natural">
+      <input type="hidden" name="sellers" value="1002074">
+      <input type="hidden" name="searchField" value="titulo-autor">
+
+      <label for="search-input" class="visually-hidden">Buscar livros por título ou autor</label>
+      <input type="text" id="search-input" name="q" class="search-input" placeholder="Garimpar por título ou autor...">
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+           fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+           class="search-icon">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </form>
+  </header>
+
   <main>
     <h1>Sebo Menos Telas</h1>
 
