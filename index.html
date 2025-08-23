@@ -6,6 +6,7 @@
   <meta name="description" content="Sebo digital em São Paulo desde 2017, promovendo a leitura de livros usados e impressos com atendimento humano e cuidadoso." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Sebo Menos Telas" />
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://sebomenostelas.com.br/" />
   <link rel="icon" href="logo.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="logo.png" sizes="512x512">
@@ -14,8 +15,9 @@
 
   <meta property="og:title" content="Sebo Menos Telas – Se um livro você ler, das telas vai esquecer" />
   <meta property="og:description" content="Sebo digital em São Paulo desde 2017, promovendo a leitura de livros usados e impressos com atendimento humano e cuidadoso." />
-  <meta property="og:image" content="https://sebomenostelas.com.br/logo.webp" />
+  <meta property="og:image" content="https://sebomenostelas.com.br/logo.png" />
   <meta property="og:url" content="https://sebomenostelas.com.br/" />
+  <meta property="og:locale" content="pt_BR" />
   <meta property="og:type" content="website" />
 
   <style>
@@ -23,8 +25,12 @@
       color-scheme: light dark;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      max-width: 400px;
+      max-width: 40ch;
       margin: 40px auto;
       padding: 0 20px;
       font-family: Georgia, 'Times New Roman', serif;
@@ -37,29 +43,23 @@
     h1 {
       text-align: center;
       font-size: 2.2em;
-      margin-bottom: 1.5em;
+      margin-bottom: 1em;
       font-weight: normal;
     }
 
-    pre {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: clamp(16px, 2.5vw, 19px);
-      line-height: 1.9;
-      white-space: pre-wrap;
-      margin-top: 0;
-      margin-bottom: 0;
-      color: inherit;
+    section.poem {
+      white-space: pre-wrap; 
+      line-height: 1.8;
     }
 
     .notes {
       font-family: monospace;
-      width: 3cm;
       overflow: hidden;
       white-space: nowrap;
     }
 
     .legend-list {
-      margin-top: 0em;
+      margin-top: 0;
       padding-left: 0;
       list-style-position: inside;
       font-size: clamp(14px, 2vw, 17px);
@@ -93,7 +93,7 @@
   <main>
     <h1>Sebo Menos Telas</h1>
 
-    <pre>
+    <section class="poem">
 Em 2017 surgiu, com afeto insistente,
 Um projeto gentil, de alma consciente.
 Nasceu em São Paulo, pronto a ascender,
@@ -104,9 +104,9 @@ Palavras em páginas a envelhecer,
 E vozes antigas voltam a viver.
 Um eco suave do que já se leu,
 De histórias que o mundo escreveu.
-    </pre>
+    </section>
 
-    <pre>
+    <section class="poem">
 Mesmo que os livros habitem o virtual,
 O calor humano é sempre essencial.
 Pelo WhatsApp tu podes conversar¹;
@@ -117,9 +117,9 @@ Histórias antigas voltam a brilhar,
 E novos leitores vão se encantar.
 Não têm loja de porta e de janela,
 Mas trazem zelo, alma e cautela.
-    </pre>
+    </section>
 
-    <pre>
+    <section class="poem">
 Tens, esquecidos, livros de outrora?
 Romances que aguardam nova aurora?
 Fantasias, mistérios, enredos no ar,
@@ -130,9 +130,9 @@ Em São Paulo a coleta é cortesia,
 E pode ser feita no mesmo dia.
 Bastam algumas palavras enviar¹,
 Para a jornada da dádiva começar.
-    </pre>
+    </section>
 
-    <pre>
+    <section class="poem">
 Nessa era de redes a nos prender,
 O Sebo escolheu se desconectar e ler.
 Não usa mais Instagram, nem Facebook,
@@ -143,12 +143,12 @@ Ou, se preferes uma escrita formal,
 O e-mail espera com tom cordial³.
 Sempre será prazer te acolher,
 Num refúgio de papel a florescer.
-    </pre>
+    </section>
 
   </main>
 
   <footer>
-    <div class="notes">______________</div>
+    <div class="notes">__________</div>
     <ol class="legend-list">
       <li><a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp">WhatsApp</a></li>
       <li><a href="https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas" target="_blank" rel="noopener noreferrer" lang="pt-BR" aria-label="Abrir loja na Estante Virtual">Estante Virtual</a></li>
