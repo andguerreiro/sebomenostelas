@@ -6,7 +6,7 @@
   <meta name="description" content="Sebo digital em São Paulo desde 2017, promovendo a leitura de livros usados e impressos com atendimento humano e cuidadoso." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Sebo Menos Telas" />
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://sebomenostelas.com.br/" />
   <link rel="icon" href="logo.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="logo.png" sizes="512x512">
@@ -46,66 +46,79 @@
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      max-width: 500px;
+      max-width: 640px;
       margin: 40px auto;
       padding: 0 20px;
-      font-family: Georgia, 'Times New Roman', serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       font-size: clamp(16px, 2.5vw, 19px);
-      line-height: 1.9;
+      line-height: 1.8;
       background-color: #fff;
-      color: #000;
+      color: #111;
     }
 
     h1 {
       text-align: center;
-      font-size: 2.2em;
-      margin-bottom: 1em;
-      font-weight: normal;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 1.2em;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
 
     section.poem {
-      line-height: 1.8;
+      margin-bottom: 3rem;
     }
 
     section.poem p {
       margin-bottom: 2em;
     }
 
+    footer {
+      margin-top: 3rem;
+    }
+
     .notes {
       font-family: monospace;
-      overflow: hidden;
       white-space: nowrap;
+      overflow: hidden;
+      color: #888;
+      margin-bottom: 1rem;
     }
 
     .legend-list {
-      margin-top: 0;
-      padding-left: 0;
-      list-style-position: inside;
       font-size: clamp(14px, 2vw, 17px);
-      line-height: 1.3;
-      text-align: justify;
+      line-height: 1.6;
+      list-style-position: inside;
+      padding-left: 0;
+      color: inherit;
     }
 
     .legend-list li {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.7em;
     }
 
     .legend-list a {
-      color: #000;
+      color: #0055cc;
       text-decoration: underline;
     }
 
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #121212;
-        color: #f0f0f0;
+        color: #e0e0e0;
       }
 
       .legend-list a {
-        color: #f0f0f0;
+        color: #80bfff;
+      }
+
+      .notes {
+        color: #444;
       }
     }
   </style>
@@ -168,7 +181,6 @@
         Num refúgio de papel a florescer.<br>
       </p>
     </section>
-
   </main>
 
   <footer>
@@ -179,6 +191,5 @@
       <li><a href="mailto:sebomenostelas@gmail.com" aria-label="Enviar e-mail">E-mail</a></li>
     </ol>
   </footer>
-
 </body>
 </html>
