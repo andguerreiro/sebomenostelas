@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://sebomenostelas.com.br/">
-  <link rel="icon" href="logo.png" type="image/png" sizes="512x512">
+  <link rel="icon" href="logo.png" sizes="512x512">
   <link rel="apple-touch-icon" href="logo.png" sizes="512x512">
 
   <title>Sebo Menos Telas – Se um livro você ler, das telas vai esquecer</title>
@@ -43,7 +43,20 @@
 
   <style>
     :root {
+      --cor-fundo: #fff;
+      --cor-texto: #111;
+      --cor-link: #0055cc;
+      --cor-borda-hr: #888;
       color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --cor-fundo: #121212;
+        --cor-texto: #e0e0e0;
+        --cor-link: #80bfff;
+        --cor-borda-hr: #444;
+      }
     }
 
     * {
@@ -58,9 +71,9 @@
       padding: 0 20px;
       font-family: Arial, sans-serif;
       font-size: clamp(16px, 2.5vw, 19px);
-      line-height: 1.8;
-      background-color: #fff;
-      color: #111;
+      line-height: 1.6;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
     }
 
     h1 {
@@ -86,7 +99,7 @@
 
     hr.notes {
       border: none;
-      border-top: 1px solid #888;
+      border-top: 1px solid var(--cor-borda-hr);
       width: 40%;
       margin-bottom: 1rem;
       margin-left: 0;
@@ -105,23 +118,8 @@
     }
 
     .legend-list a {
-      color: #0055cc;
+      color: var(--cor-link);
       text-decoration: underline;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #e0e0e0;
-      }
-
-      .legend-list a {
-        color: #80bfff;
-      }
-
-      hr.notes {
-        border-top: 1px solid #444;
-      }
     }
   </style>
 </head>
