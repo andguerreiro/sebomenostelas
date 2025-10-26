@@ -10,8 +10,8 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://sebomenostelas.com.br/">
-  <link rel="icon" href="logo.png" sizes="512x512">
-  <link rel="apple-touch-icon" href="logo.png" sizes="512x512">
+  <link rel="icon" href="logo.png" sizes="512x512" alt="Logo do Sebo Menos Telas">
+  <link rel="apple-touch-icon" href="logo.png" sizes="512x512" alt="Logo do Sebo Menos Telas">
 
   <title>Sebo Menos Telas – Se um livro você ler, das telas vai esquecer</title>
 
@@ -45,8 +45,7 @@
     :root {
       --cor-fundo: #fff;
       --cor-texto: #111;
-      --cor-link: #0055cc;
-      --cor-borda-hr: #888;
+      --cor-link: #000;
       color-scheme: light dark;
     }
 
@@ -54,8 +53,7 @@
       :root {
         --cor-fundo: #121212;
         --cor-texto: #e0e0e0;
-        --cor-link: #80bfff;
-        --cor-borda-hr: #444;
+        --cor-link: #fff;
       }
     }
 
@@ -66,130 +64,53 @@
     }
 
     body {
-      max-width: 550px;
+      max-width: 650px;
       margin: 40px auto;
       padding: 0 20px;
-      font-family: sans-serif;
+      font-family: system-ui, sans-serif;
       font-size: clamp(16px, 2.5vw, 19px);
       line-height: 1.6;
       background-color: var(--cor-fundo);
       color: var(--cor-texto);
+      text-align: justify;
     }
 
     h1 {
       text-align: center;
-      font-size: clamp(2rem, 5vw, 2.2rem);
-      margin-bottom: 1.2em;
+      font-size: clamp(2rem, 5vw, 2.4rem);
+      margin-bottom: 1.5em;
       font-weight: 600;
       line-height: 1.2;
       letter-spacing: -0.02em;
     }
 
-    .poem {
-      margin-bottom: 3rem;
-    }
-
-    .poem p {
-      margin-bottom: 2em;
-    }
-
-    footer {
-      margin-top: 3rem;
-    }
-
-    hr.notes {
-      border: none;
-      border-top: 1px solid var(--cor-borda-hr);
-      width: 40%;
-      margin-bottom: 1rem;
-      margin-left: 0;
-    }
-
-    .legend-list {
-      font-size: clamp(14px, 2vw, 17px);
+    p {
+      margin-bottom: 1.5em;
       line-height: 1.6;
-      list-style-position: inside;
-      padding-left: 0;
-      color: inherit;
     }
 
-    .legend-list li {
-      margin-bottom: 0.7em;
-    }
-
-    .legend-list a {
+    a {
       color: var(--cor-link);
+      text-decoration: underline;
+    }
+
+    a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
-  <main>
+  <header>
     <h1>Sebo Menos Telas</h1>
+  </header>
 
-    <div class="poem">
-      <p>
-        Em 2017 surgiu, com afeto insistente,<br>
-        Um projeto gentil, de alma consciente.<br>
-        Nasceu em São Paulo, pronto a ascender,<br>
-        Um sebo disposto a não se render.<br>
-        Um abrigo em papel, calor a ofertar,<br>
-        Contra o brilho das telas a nos cegar.<br>
-        Palavras em páginas a envelhecer,<br>
-        E vozes antigas voltam a viver.<br>
-        Um eco suave do que já se leu,<br>
-        De histórias que o mundo escreveu.<br>
-      </p>
-
-      <p>
-        Não tem loja de porta e de janela,<br>
-        Mas traz muito zelo, alma e cautela.<br>
-        Mesmo que os livros habitem o virtual,<br>
-        O calor humano é sempre essencial.<br>
-        Pelo WhatsApp tu podes conversar¹;<br>
-        E um cuidado atencioso vais encontrar.<br>
-        Se pela internet queres comprar,<br>
-        Na Estante Virtual deves navegar²;<br>
-        Histórias antigas voltam a brilhar,<br>
-        E novos leitores vão se encantar.<br>
-      </p>
-
-      <p>
-        Tens, esquecidos, livros de outrora?<br>
-        Romances que aguardam nova aurora?<br>
-        Fantasias, mistérios, enredos no ar,<br>
-        Que desejas a outro leitor repassar?<br>
-        O Sebo Menos Telas aceita doação,<br>
-        Mas apenas de livros de ficção.<br>
-        Em São Paulo a coleta é cortesia,<br>
-        E pode ser feita no mesmo dia.<br>
-        Bastam algumas palavras enviar¹,<br>
-        Para a jornada da dádiva começar.<br>
-      </p>
-
-      <p>
-        Nessa era de redes a nos prender,<br>
-        O Sebo escolheu se desconectar e ler.<br>
-        Não usa mais Instagram, nem Facebook,<br>
-        Pois prefere o livro ao digital truque.<br>
-        Precisa de ajuda ou de informação?<br>
-        Chame no WhatsApp, sem hesitação¹.<br>
-        Ou, se preferes uma escrita formal,<br>
-        O e-mail espera com tom cordial³.<br>
-        Sempre será prazer te acolher,<br>
-        Num refúgio de papel a florescer.<br>
-      </p>
-    </div>
+  <main>
+    <section>
+      <article>
+        <p>O Sebo Menos Telas é um sebo digital de livros usados desde 2017. Está localizado em São Paulo (SP), mas não possui loja física. As vendas podem ser realizadas por meio da <a href="https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas" target="_blank" rel="noopener noreferrer">Estante Virtual</a> ou entrando em contato. As entregas são realizadas via Correios e, se você estiver no bairro da Mooca, em São Paulo, a entrega poderá ser feita pessoalmente no seu endereço. Se você tem livros para doar e está em São Paulo, entre em contato para agendar uma coleta gratuita, que pode ser realizada até no mesmo dia. A compra de livros para revenda é feita exclusivamente em bazares beneficentes ou ONGs. O Sebo Menos Telas não usa mais nenhuma rede social, mas você pode entrar em contato por meio do <a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou por <a href="mailto:sebomenostelas@gmail.com">e-mail</a>, onde será atendido cuidadosamente por um livreiro de verdade.</p>
+      </article>
+    </section>
   </main>
-
-  <footer>
-    <hr class="notes">
-    <ol class="legend-list">
-      <li><a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp">WhatsApp</a></li>
-      <li><a href="https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas" target="_blank" rel="noopener noreferrer" aria-label="Abrir loja na Estante Virtual">Estante Virtual</a></li>
-      <li><a href="mailto:sebomenostelas@gmail.com" aria-label="Enviar e-mail">E-mail</a></li>
-    </ol>
-  </footer>
 </body>
 </html>
