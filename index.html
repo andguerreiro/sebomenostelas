@@ -11,7 +11,7 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://sebomenostelas.com.br/">
-  <link rel="icon" href="logo.png" sizes="512x512" alt="Logo Sebo Menos Telas">
+  <link rel="icon" href="logo.png" sizes="32x32 16x16" alt="Logo Sebo Menos Telas">
   <link rel="apple-touch-icon" href="logo.png" sizes="512x512" alt="Logo Sebo Menos Telas">
   <title>Sebo Menos Telas – Se um livro você ler, das telas vai esquecer</title>
 
@@ -43,19 +43,86 @@
   </script>
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { font-size: 100%; }
-    :root { --cor-fundo: #fff; --cor-texto: #000; --cor-link: #000; }
-    @media (prefers-color-scheme: dark) {
-      :root { --cor-fundo: #000; --cor-texto: #fff; --cor-link: #fff; }
+    /* Reset e Box-Sizing */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    /* Variáveis de Cores */
+    :root {
+      --cor-fundo: #fff;
+      --cor-texto: #000;
+      --cor-link: #000;
+      --cor-link-hover: #333;
+      --espaco-base: 1.6;
     }
-    body { width: 100%; max-width: 900px; margin: 20px auto; padding: 0 20px; font-family: sans-serif; line-height: 1.6; background-color: var(--cor-fundo); color: var(--cor-texto); text-align: justify; }
-    h1 { text-align: center; font-family: serif; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.3em; font-weight: normal; line-height: 1.2; letter-spacing: -0.02em; }
-    p { margin: 0; text-indent: 2em; line-height: 1.6; font-size: clamp(1rem, 2vw + 1rem, 1.25rem); }
-    a { color: var(--cor-link); text-decoration: underline; font-style: italic; }
-    .links { text-align: center; margin-top: 2em; }
-    footer { margin-top: 3em; font-size: 0.9rem; text-align: center; color: var(--cor-texto); }
-    footer i { font-style: italic; }
+    
+    /* Tema escuro */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --cor-fundo: #000;
+        --cor-texto: #fff;
+        --cor-link: #fff;
+      }
+    }
+    
+    /* Estilo Global */
+    html {
+      font-size: 100%;
+    }
+    body {
+      width: 100%;
+      margin: 20px auto;
+      padding: 0 5vw;
+      font-family: sans-serif;
+      line-height: var(--espaco-base);
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      text-align: justify;
+    }
+    
+    /* Cabeçalho */
+    h1 {
+      text-align: center;
+      font-family: serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1.3em;
+      font-weight: normal;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    /* Parágrafos */
+    p {
+      text-indent: 2em;
+      line-height: var(--espaco-base);
+      font-size: clamp(1rem, 2vw + 1rem, 1.25rem);
+    }
+    
+    /* Links */
+    a {
+      color: var(--cor-link);
+      text-decoration: underline;
+      font-style: italic;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--cor-link-hover);
+    }
+    
+    /* Links de Contato */
+    .links {
+      text-align: center;
+      margin-top: 2em;
+    }
+    
+    footer {
+      margin-top: 3em;
+      font-size: 0.9rem;
+      text-align: center;
+      color: var(--cor-texto);
+    }
+    footer i {
+      font-style: italic;
+    }
   </style>
 </head>
 
@@ -82,7 +149,7 @@
 
   <footer>
     <div class="links">
-      <p><i>Para mais informações, entre em contato pelo <a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</i></p>
+      <p><i>Para mais informações, entre em contato pelo <a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer" title="Entre em contato pelo WhatsApp">WhatsApp</a>.</i></p>
     </div>
   </footer>
 </body>
