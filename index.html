@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Sebo digital em São Paulo, promovendo a leitura de livros usados e impressos, com atendimento humano e cuidadoso. Desde 2017.">
-  <meta name="robots" content="index, follow">
   <meta name="author" content="Sebo Menos Telas">
+  <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://sebomenostelas.com.br/">
-  <link rel="icon" href="logo.png" sizes="512x512" alt="Logo do Sebo Menos Telas">
-  <link rel="apple-touch-icon" href="logo.png" sizes="512x512" alt="Logo do Sebo Menos Telas">
-
+  <link rel="icon" href="logo.png" sizes="512x512" alt="Logo Sebo Menos Telas">
+  <link rel="apple-touch-icon" href="logo.png" sizes="512x512" alt="Logo Sebo Menos Telas">
   <title>Sebo Menos Telas – Se um livro você ler, das telas vai esquecer</title>
 
+  <!-- Open Graph -->
   <meta property="og:title" content="Sebo Menos Telas – Se um livro você ler, das telas vai esquecer">
   <meta property="og:description" content="Sebo digital em São Paulo, promovendo a leitura de livros usados e impressos, com atendimento humano e cuidadoso. Desde 2017.">
   <meta property="og:image" content="https://sebomenostelas.com.br/logo.png">
@@ -23,85 +24,38 @@
   <meta property="og:type" content="website">
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BookStore",
-    "name": "Sebo Menos Telas",
-    "url": "https://sebomenostelas.com.br",
-    "logo": "https://sebomenostelas.com.br/logo.png",
-    "sameAs": [
-      "https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "email": "sebomenostelas@gmail.com",
-      "url": "https://wa.me/5511981350566"
+    {
+      "@context": "https://schema.org",
+      "@type": "BookStore",
+      "name": "Sebo Menos Telas",
+      "url": "https://sebomenostelas.com.br",
+      "logo": "https://sebomenostelas.com.br/logo.png",
+      "sameAs": [
+        "https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "sebomenostelas@gmail.com",
+        "url": "https://wa.me/5511981350566"
+      }
     }
-  }
   </script>
 
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      font-size: 100%;
-    }
-
-    :root {
-      --cor-fundo: #fff;
-      --cor-texto: #111;
-      --cor-link: #000;
-      color-scheme: light dark;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 100%; }
+    :root { --cor-fundo: #fff; --cor-texto: #000; --cor-link: #000; }
     @media (prefers-color-scheme: dark) {
-      :root {
-        --cor-fundo: #121212;
-        --cor-texto: #e0e0e0;
-        --cor-link: #fff;
-      }
+      :root { --cor-fundo: #000; --cor-texto: #fff; --cor-link: #fff; }
     }
-
-    body {
-      width: 100%;
-      max-width: 650px;
-      margin: 40px auto;
-      padding: 0 20px;
-      font-family: system-ui, sans-serif;
-      font-size: clamp(16px, 2.5vw, 19px);
-      line-height: 1.6;
-      background-color: var(--cor-fundo);
-      color: var(--cor-texto);
-      text-align: justify;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: clamp(2rem, 5vw, 2.4rem);
-      margin-bottom: 1.5em;
-      font-weight: 600;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      margin-bottom: 1.5em;
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--cor-link);
-      text-decoration: underline;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    body { width: 100%; max-width: 900px; margin: 20px auto; padding: 0 20px; font-family: sans-serif; line-height: 1.6; background-color: var(--cor-fundo); color: var(--cor-texto); text-align: justify; }
+    h1 { text-align: center; font-family: serif; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.3em; font-weight: normal; line-height: 1.2; letter-spacing: -0.02em; }
+    p { margin: 0; text-indent: 2em; line-height: 1.6; font-size: clamp(1rem, 2vw + 1rem, 1.25rem); }
+    a { color: var(--cor-link); text-decoration: underline; font-style: italic; }
+    .links { text-align: center; margin-top: 2em; }
+    footer { margin-top: 3em; font-size: 0.9rem; text-align: center; color: var(--cor-texto); }
+    footer i { font-style: italic; }
   </style>
 </head>
 
@@ -113,9 +67,24 @@
   <main>
     <section>
       <article>
-        <p>O Sebo Menos Telas é um sebo digital de livros impressos usados, ativo desde 2017. Localizado em São Paulo, SP, ele não possui loja física. As vendas podem ser realizadas por meio da <a href="https://www.estantevirtual.com.br/sebos-e-livreiros/sebo-menos-telas" target="_blank" rel="noopener noreferrer">Estante Virtual</a> ou por mensagem direta. As entregas são realizadas em todo o Brasil via Correios e, caso você esteja no bairro da Mooca, a entrega pode ser feita pessoalmente no seu endereço. Se você tem livros para doar e está em São Paulo, entre em contato para agendar uma coleta gratuita, que pode ser realizada até no mesmo dia. A compra de livros para revenda é feita exclusivamente em bazares beneficentes ou ONGs. O Sebo Menos Telas não utiliza mais redes sociais, mas você pode entrar em contato enviando uma mensagem pelo <a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou por <a href="mailto:sebomenostelas@gmail.com">e-mail</a>, onde será atendido cuidadosamente por um livreiro de verdade. Além disso, é possível solicitar mais fotos de um livro disponível para verificar seu estado de conservação antes da compra.</p>
+        <p>Em um canto de São Paulo, no meio da vida urbana agitada, nasceu o Sebo Menos Telas. Fundado em 2017, é um projeto digital que nasceu como uma resistência ao mundo digital, oferecendo livros usados e impressos com atendimento humano e cuidadoso.</p>
+
+        <p>Este não é um sebo tradicional. Sem prateleiras em lojas físicas, o Sebo Menos Telas é um sebo online, que busca aproximar o leitor através de um atendimento personalizado, com atenção a cada livro e cliente. Sua missão é resgatar e dar nova vida a livros usados, tornando-os acessíveis para quem ainda valoriza o prazer da leitura no formato impresso.</p>
+
+        <p>Com loja na Estante Virtual e atendimentos diretos via mensagens, o Sebo Menos Telas oferece mais do que livros: oferece uma experiência única. O livreiro por trás do site está sempre disponível para tirar dúvidas, enviar fotos detalhadas dos livros e garantir que cada compra seja feita com confiança. Além disso, entrega por Correios ou, na Mooca, realiza entregas pessoalmente, como um verdadeiro mensageiro literário.</p>
+
+        <p>Se você tem livros para doar, basta entrar em contato e agendar uma coleta, inclusive no mesmo dia, para quem está em São Paulo. Além disso, as compras de livros para revenda vêm exclusivamente de bazares beneficentes e ONGs, contribuindo para causas sociais.</p>
+
+        <p>Em um mundo digital, o Sebo Menos Telas prova que é possível usar a tecnologia de forma sensível e humana. Seu lema é um reflexo de sua missão: "Se um livro você ler, das telas vai esquecer." Um convite para voltar à essência da leitura, ao prazer das páginas impressas e à experiência de um bom livro.</p>
       </article>
     </section>
   </main>
+
+  <footer>
+    <div class="links">
+      <p><i>Para mais informações, entre em contato pelo <a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</i></p>
+    </div>
+  </footer>
 </body>
+
 </html>
