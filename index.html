@@ -15,7 +15,6 @@
   <link rel="apple-touch-icon" href="logo.png" sizes="512x512" alt="Logo Sebo Menos Telas">
   <title>Sebo Menos Telas – Se um livro você ler, das telas vai esquecer</title>
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Sebo Menos Telas – Se um livro você ler, das telas vai esquecer">
   <meta property="og:description" content="Sebo digital em São Paulo, promovendo a leitura de livros usados e impressos, com atendimento humano e cuidadoso. Desde 2017.">
   <meta property="og:image" content="https://sebomenostelas.com.br/logo.png">
@@ -43,10 +42,8 @@
   </script>
 
   <style>
-    /* Reset e Box-Sizing */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    /* Variáveis de Cores */
+
     :root {
       --cor-fundo: #fff;
       --cor-texto: #000;
@@ -54,8 +51,7 @@
       --cor-link-hover: #333;
       --espaco-base: 1.6;
     }
-    
-    /* Tema escuro */
+
     @media (prefers-color-scheme: dark) {
       :root {
         --cor-fundo: #000;
@@ -63,11 +59,11 @@
         --cor-link: #fff;
       }
     }
-    
-    /* Estilo Global */
+
     html {
       font-size: 100%;
     }
+
     body {
       width: 100%;
       margin: 20px auto;
@@ -78,8 +74,7 @@
       color: var(--cor-texto);
       text-align: justify;
     }
-    
-    /* Cabeçalho */
+
     h1 {
       text-align: center;
       font-family: serif;
@@ -89,39 +84,34 @@
       line-height: 1.2;
       letter-spacing: -0.02em;
     }
-    
-    /* Parágrafos */
+
     p {
       text-indent: 2em;
       line-height: var(--espaco-base);
       font-size: clamp(1rem, 2vw + 1rem, 1.25rem);
     }
-    
-    /* Links */
+
     a {
       color: var(--cor-link);
       text-decoration: underline;
       font-style: italic;
       transition: color 0.3s ease;
     }
+
     a:hover {
       color: var(--cor-link-hover);
     }
-    
-    /* Links de Contato */
-    .links {
-      text-align: center;
-      margin-top: 2em;
-    }
-    
+
     footer {
-      margin-top: 3em;
-      font-size: 0.9rem;
       text-align: center;
+      margin-top: 3em;
+      font-size: 1rem;
       color: var(--cor-texto);
-    }
-    footer i {
       font-style: italic;
+    }
+
+    footer p {
+      text-indent: 0;
     }
   </style>
 </head>
@@ -148,9 +138,7 @@
   </main>
 
   <footer>
-    <div class="links">
-      <p><i>Para mais informações, entre em contato pelo <a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer" title="Entre em contato pelo WhatsApp">WhatsApp</a>.</i></p>
-    </div>
+    <p>Para mais informações, entre em contato pelo <a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</p>
   </footer>
 </body>
 
