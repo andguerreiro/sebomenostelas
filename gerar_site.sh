@@ -2,7 +2,7 @@
 set -eu
 
 # V2 do Sebo Menos Telas.
-# Uso: ./gerar_site.sh catalogo.csv site
+# Uso: ./gerar_site.sh
 # Requer apenas Python 3.
 #
 # URLs são persistidas em .urlmap.json. Isso é proposital: remover/adicionar/reordenar
@@ -37,7 +37,7 @@ with csv_path.open("r",encoding="utf-8-sig",newline="") as f:
     rows=list(csv.DictReader(f))
 if not rows: raise SystemExit("CSV vazio.")
 
-required=["ID","ISBN","Autor","Titulo","Editora","Ano","Estante","Preco","Peso","Idioma","Capa","Paginas","Dimensoes"]
+required=["ISBN","Autor","Titulo","Editora","Ano","Estante","Preco","Peso","Idioma","Capa","Paginas","Dimensoes"]
 missing=[c for c in required if c not in rows[0]]
 if missing: raise SystemExit("Colunas ausentes no CSV: "+", ".join(missing))
 
@@ -93,10 +93,10 @@ for r in rows:
 
 urlmap_path.write_text(json.dumps(urlmap,ensure_ascii=False,indent=2,sort_keys=True)+"\n",encoding="utf-8")
 
-# IDs internos deixam de participar da URL. Continuam apenas como referência operacional/WhatsApp.
+# O código/ID interno não é mais necessário no catálogo.
 search_data=[]
 for r in rows:
-    search_data.append({"isbn":r["ISBN"],"autor":r["Autor"],"titulo":r["Titulo"],"editora":r["Editora"],"ano":r["Ano"],"preco":r["Preco"],"slug":r["_slug"],"id":r["ID"]})
+    search_data.append({"isbn":r["ISBN"],"autor":r["Autor"],"titulo":r["Titulo"],"editora":r["Editora"],"ano":r["Ano"],"preco":r["Preco"],"slug":r["_slug"]})
 (out/"dados"/"catalogo.json").write_text(json.dumps(search_data,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 
 for p in (out/"livro").glob("*.html"): p.unlink()
