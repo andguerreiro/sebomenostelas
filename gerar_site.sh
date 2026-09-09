@@ -2,7 +2,7 @@
 set -eu
 
 # V2 do Sebo Menos Telas.
-# Uso: ./gerar_site.sh
+# Uso: ./gerar_site.sh catalogo.csv site
 # Requer apenas Python 3.
 #
 # URLs são persistidas em .urlmap.json. Isso é proposital: remover/adicionar/reordenar
