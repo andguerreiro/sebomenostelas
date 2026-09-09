@@ -2,7 +2,7 @@
 set -eu
 
 # V2 do Sebo Menos Telas.
-# Uso: ./gerar_site.sh catalogo.csv site
+# Uso: ./gerar_site.sh
 # Requer apenas Python 3.
 #
 # URLs são persistidas em .urlmap.json. Isso é proposital: remover/adicionar/reordenar
@@ -13,18 +13,20 @@ set -eu
 CSV="${1:-catalogo.csv}"
 OUT="${2:-site}"
 INDEX_TEMPLATE="index.html"
+SOBRE_TEMPLATE="sobre.html"
 BASE_URL="https://sebomenostelas.com.br"
 URLMAP=".urlmap.json"
 
-python3 - "$CSV" "$OUT" "$INDEX_TEMPLATE" "$BASE_URL" "$URLMAP" <<'PY'
+python3 - "$CSV" "$OUT" "$INDEX_TEMPLATE" "$SOBRE_TEMPLATE" "$BASE_URL" "$URLMAP" <<'PY'
 import csv, hashlib, html, json, re, shutil, sys, unicodedata, urllib.parse, zipfile
 from pathlib import Path
 
 csv_path=Path(sys.argv[1]).expanduser().resolve()
 out=Path(sys.argv[2]).expanduser().resolve()
 index_template=Path(sys.argv[3]).expanduser().resolve()
-base_url=sys.argv[4].rstrip("/")
-urlmap_path=Path(sys.argv[5]).expanduser().resolve()
+sobre_template=Path(sys.argv[4]).expanduser().resolve()
+base_url=sys.argv[5].rstrip("/")
+urlmap_path=Path(sys.argv[6]).expanduser().resolve()
 
 if not csv_path.exists(): raise SystemExit(f"CSV não encontrado: {csv_path}")
 if not index_template.exists(): raise SystemExit(f"Template não encontrado: {index_template}")
@@ -67,8 +69,6 @@ def make_slug(r,key):
     parts=[p for p in parts if p]
     return "-".join(parts)+"-"+suffix(key)
 
-# O mapa é deliberadamente persistente e fica na raiz do projeto, fora de OUT.
-# Assim uma nova geração preserva URLs mesmo se o catálogo mudar de ordem.
 if urlmap_path.exists():
     try: urlmap=json.loads(urlmap_path.read_text(encoding="utf-8"))
     except Exception as e: raise SystemExit(f"Não foi possível ler {URLMAP}: {e}")
@@ -91,9 +91,8 @@ for r in rows:
         urlmap[key]=candidate
     used.add(r["_slug"])
 
-urlmap_path.write_text(json.dumps(urlmap,ensure_ascii=False,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+urlmap_path.write_text(json.dumps(urlmap,ensure_ascii=False,indent=2,sort_keys=True) + "\n",encoding="utf-8")
 
-# O código/ID interno não é mais necessário no catálogo.
 search_data=[]
 for r in rows:
     search_data.append({"isbn":r["ISBN"],"autor":r["Autor"],"titulo":r["Titulo"],"editora":r["Editora"],"ano":r["Ano"],"preco":r["Preco"],"slug":r["_slug"]})
@@ -117,8 +116,11 @@ for r in rows:
 </tbody></table><a class="acao" href="{esc(wa_url)}" target="_blank" rel="noopener noreferrer nofollow">Pedir fotos detalhadas pelo WhatsApp</a></main><footer>Desde 2017 · São Paulo, SP · Sebo Menos Telas</footer></body></html>'''
     (out/"livro"/f'{r["_slug"]}.html').write_text(page,encoding="utf-8")
 
-shutil.copy2(index_template,out/"index.html")
-urls=[f"{base_url}/"]+[f'{base_url}/livro/{r["_slug"]}.html' for r in rows]
+shutil.copy2(index_template, out/"index.html")
+if sobre_template.exists():
+    shutil.copy2(sobre_template, out/"sobre.html")
+
+urls=[f"{base_url}/", f"{base_url}/sobre.html"]+[f'{base_url}/livro/{r["_slug"]}.html' for r in rows]
 sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"\n".join(f"  <url><loc>{esc(u)}</loc></url>" for u in urls)+'\n</urlset>\n'
 (out/"sitemap.xml").write_text(sitemap,encoding="utf-8")
 (out/"robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {base_url}/sitemap.xml\n",encoding="utf-8")
