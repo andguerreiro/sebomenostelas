@@ -141,6 +141,32 @@ a{
   font-weight:bold;
 }
 
+.acao{
+  display:block;
+  margin:1.4em auto;
+  padding:.8em 1em;
+  border:1px solid #999;
+  text-align:center;
+  text-decoration:none;
+  font-style:italic;
+  font-weight:normal;
+  cursor:pointer;
+  background:transparent;
+  color:inherit;
+  font-family:inherit;
+  font-size:1em;
+}
+
+.acao:hover,.acao:focus{
+  background:#eee;
+}
+
+@media (prefers-color-scheme:dark){
+  .acao:hover,.acao:focus{
+    background:#292929;
+  }
+}
+
 @media (max-width:480px){
   body{
     padding:.8em;
@@ -222,10 +248,14 @@ Todo livro foi feito para circular e ser lido por mais de um leitor. Além de en
 <h2>Epílogo<br>Caminhos do Livro</h2>
 
 <p>
-Você pode comprar os livros disponíveis diretamente comigo ou pela Estante Virtual. Se você estiver na Mooca, em São Paulo, eu entrego o livro pessoalmente e com frete grátis nas compras diretas. É uma forma simples de valorizar a vizinhança e facilitar o acesso ao seu novo leitor.
+Você pode comprar os livros disponíveis diretamente comigo, pela Estante Virtual ou pelo Mercado Livre. Se você estiver na Mooca, em São Paulo, eu entrego o livro pessoalmente e com frete grátis nas compras diretas. É uma forma simples de valorizar a vizinhança e facilitar o acesso ao seu novo leitor.
 </p>
 
 </main>
+
+<a class="acao" href="/catalogo.html">
+  Acessar o Catálogo
+</a>
 
 <footer>
 
@@ -238,7 +268,3 @@ Envie uma mensagem pelo <a href="https://wa.link/ngit7u" target="_blank" rel="no
 
 </body>
 </html>
-
-
-
-
