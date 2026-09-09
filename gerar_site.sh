@@ -387,7 +387,7 @@ for r in rows:
 <tr><td>Ano</td><td>{esc(r['Ano'])}</td></tr>
 <tr><td>ISBN</td><td>{esc(r['ISBN'])}</td></tr>
 <tr><td>Idioma</td><td>{esc(r['Idioma'])}</td></tr>
-<tr><td>Formato</td><td>{esc(r['Capa'])}</td></tr>
+<tr><td>Capa</td><td>{esc(r['Capa'])}</td></tr>
 <tr><td>Páginas</td><td>{esc(r['Paginas'])}</td></tr>
 <tr><td>Dimensões</td><td>{esc(r['Dimensoes'])}</td></tr>
 <tr><td>Peso</td><td>{esc(r['Peso'])} g</td></tr>
