@@ -25,18 +25,8 @@ input{grid-column:1 / -1;width:100%;min-width:0;min-height:44px;padding:0 12px;b
 input:focus{outline:0;border-color:#777}
 button{width:100%;height:38px;border:1px solid #222;border-radius:6px;padding:0 16px;background:#222;color:#fff;font-weight:650;cursor:pointer}
 button:focus-visible,a:focus-visible{outline:3px solid #777;outline-offset:2px}
-
-#resultados{
-margin:0
-}
-
-#resultados .status{
-margin:0 0 6px;
-padding-top:24px;
-color:#666;
-font-size:.9rem
-}
-
+#resultados{margin:0}
+#resultados .status{margin:0 0 6px;padding-top:24px;color:#666;font-size:.9rem}
 .livro{padding:10px 0;border-top:1px solid #ddd}
 .livro h2{margin:0 0 2px;font-size:1rem;line-height:1.3}
 .livro h2 a{color:inherit}
@@ -48,26 +38,23 @@ font-size:.9rem
 footer{margin-top:auto;padding:12px 0 16px;border-top:1px solid #ddd;text-align:center;color:#666;font-size:.85rem}
 footer p{margin:0}
 footer a{color:inherit}
-
 @media(min-width:521px){
-form button{width:120px}
-form button[type="submit"]{justify-self:end}
-form button[type="button"]{justify-self:start}
+  form button{width:120px}
+  form button[type="submit"]{justify-self:end}
+  form button[type="button"]{justify-self:start}
 }
-
 @media(max-width:520px){
-form{grid-template-columns:1fr 1fr}
-form button{width:100%}
+  form{grid-template-columns:1fr 1fr}
+  form button{width:100%}
 }
-
 @media(prefers-color-scheme:dark){
-body,input{background:#111;color:#eee}
-input{border-color:#666}
-button{background:#eee;color:#111;border-color:#eee}
-.status,.vazio,footer{color:#aaa}
-.livro,footer{border-color:#333}
-} </style>
-
+  body,input{background:#111;color:#eee}
+  input{border-color:#666}
+  button{background:#eee;color:#111;border-color:#eee}
+  .status,.vazio,footer{color:#aaa}
+  .livro,footer{border-color:#333}
+}
+</style>
 </head>
 <body>
 <main>
