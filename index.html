@@ -14,6 +14,8 @@
 body{margin:0;min-height:100dvh;display:flex;flex-direction:column;font:1rem/1.4 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#222;background:#fff}
 main,footer{width:min(calc(100% - 32px),760px);margin-left:auto;margin-right:auto}
 main{margin-top:auto;margin-bottom:auto;padding:24px 0}
+.logo{display:block;width:110px;height:110px;margin:0 auto 10px}
+.logo.oculto{display:none}
 h1{margin:0 0 20px;text-align:center;font-size:clamp(1.6rem,6vw,2.2rem);font-weight:700;letter-spacing:-.03em}
 form{display:grid;grid-template-columns:1fr auto;gap:6px}
 label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -50,6 +52,7 @@ footer a{color:inherit}
 </head>
 <body>
 <main>
+<img id="logo" class="logo" src="logo.png" alt="Sebo Menos Telas">
 <h1>Sebo Menos Telas</h1>
 <form id="busca" role="search">
 <label for="q">Buscar livro</label>
@@ -58,18 +61,17 @@ footer a{color:inherit}
 </form>
 <section id="resultados" aria-live="polite"></section>
 </main>
-
 <footer>
 <p>Desde 2017 · São Paulo, SP</p>
 <p><a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer nofollow">Contato</a> · <a id="doacao" href="https://wa.me/5511981350566?text=Ol%C3%A1%21%20Quero%20doar%20livros%20para%20o%20Sebo%20Menos%20Telas.%0AGostaria%20de%20saber%20como%20funciona." target="_blank" rel="noopener noreferrer nofollow">Doação</a> · <a href="/sobre.html">Sobre</a></p>
 </footer>
-
 <script>
 (() => {
   const P = "5511981350566";
   const f = document.getElementById("busca");
   const i = document.getElementById("q");
   const r = document.getElementById("resultados");
+  const logo = document.getElementById("logo");
 
   const n = v => String(v ?? "")
     .normalize("NFD")
@@ -96,6 +98,7 @@ footer a{color:inherit}
 
   async function buscar(q) {
     r.innerHTML = '<p class="status">Buscando...</p>';
+
     try {
       if (!c) {
         const x = await fetch("/dados/catalogo.json",{cache:"no-cache"});
@@ -133,18 +136,24 @@ footer a{color:inherit}
   f.addEventListener("submit", x => {
     x.preventDefault();
     const q = i.value.trim();
+
     if (!q) {
       r.innerHTML = "";
+      logo.classList.remove("oculto");
       i.focus();
       return;
     }
+
+    logo.classList.add("oculto");
     history.replaceState(null,"",`?q=${encodeURIComponent(q)}`);
     buscar(q);
   });
 
   const q = new URLSearchParams(location.search).get("q");
+
   if (q) {
     i.value = q;
+    logo.classList.add("oculto");
     buscar(q);
   }
 })();
