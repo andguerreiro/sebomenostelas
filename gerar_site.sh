@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eu
-# V6 do Sebo Menos Telas.
+# V7 do Sebo Menos Telas.
 # Uso: ./gerar_site.sh
 # Requer apenas Python 3.
 # A busca considera título, autor, editora, ISBN, ano, estante, idioma e preço.
@@ -9,18 +9,18 @@ set -eu
 # linhas do CSV não deve mudar as URLs dos livros que continuam no acervo.
 # Para livros com ISBN, o ISBN é a chave estável. Sem ISBN, usa-se a combinação
 # título + autor + editora + ano. O sufixo curto é um código determinístico.
-
 CSV="${1:-catalogo.csv}"
 OUT="${2:-site}"
 INDEX_TEMPLATE="${3:-index.html}"
 SOBRE_TEMPLATE="${4:-sobre.html}"
 FAVICON_TEMPLATE="${5:-favicon.ico}"
 LOGO_TEMPLATE="${6:-logo.png}"
+ERROR_TEMPLATE="${7:-404.html}"
 BASE_URL="https://sebomenostelas.com.br"
 URLMAP=".urlmap.json"
 
-python3 - "$CSV" "$OUT" "$INDEX_TEMPLATE" "$SOBRE_TEMPLATE" "$FAVICON_TEMPLATE" "$LOGO_TEMPLATE" "$BASE_URL" "$URLMAP" <<'PY'
-import csv, hashlib, html, json, re, shutil, sys, unicodedata, urllib.parse
+python3 - "$CSV" "$OUT" "$INDEX_TEMPLATE" "$SOBRE_TEMPLATE" "$FAVICON_TEMPLATE" "$LOGO_TEMPLATE" "$ERROR_TEMPLATE" "$BASE_URL" "$URLMAP" <<'PY'
+import csv, hashlib, html, json, re, shutil, sys, unicodedata, urllib.parse, zipfile
 from pathlib import Path
 
 csv_path = Path(sys.argv[1]).expanduser().resolve()
@@ -29,8 +29,9 @@ index_template = Path(sys.argv[3]).expanduser().resolve()
 sobre_template = Path(sys.argv[4]).expanduser().resolve()
 favicon_template = Path(sys.argv[5]).expanduser().resolve()
 logo_template = Path(sys.argv[6]).expanduser().resolve()
-base_url = sys.argv[7].rstrip("/")
-urlmap_path = Path(sys.argv[8]).expanduser().resolve()
+error_template = Path(sys.argv[7]).expanduser().resolve()
+base_url = sys.argv[8].rstrip("/")
+urlmap_path = Path(sys.argv[9]).expanduser().resolve()
 
 if not csv_path.exists():
     raise SystemExit(f"CSV não encontrado: {csv_path}")
@@ -91,6 +92,7 @@ def price(v):
 
 def stable_key(r):
     isbn = norm(r["ISBN"])
+
     if isbn and isbn not in {"nd", "n/d", "na", "n/a", "sem isbn"}:
         return "isbn:" + isbn
 
@@ -208,7 +210,7 @@ for r in rows:
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Book","name":r["Titulo"],"author":{"@type":"Person","name":r["Autor"]},"publisher":{"@type":"Organization","name":r["Editora"]},"isbn":r["ISBN"] if r["ISBN"] not in {"ND",""} else None,"datePublished":r["Ano"] if r["Ano"].isdigit() else None,"inLanguage":r["Idioma"],"numberOfPages":int(r["Paginas"]) if r["Paginas"].isdigit() else None,"url":book_url},ensure_ascii=False,separators=(",",":"))}</script>
 <style>:root{{color-scheme:light dark}}*{{box-sizing:border-box}}body{{max-width:760px;margin:0 auto;padding:28px 16px 40px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#222;background:#fff;line-height:1.5}}a{{color:inherit}}.voltar{{display:inline-block;margin-bottom:24px}}h1{{margin:0 0 4px;font-size:clamp(1.5rem,6vw,2.2rem);line-height:1.2}}.autor{{margin:0 0 20px;font-weight:650}}.preco{{font-size:1.25rem;font-weight:750;margin:0 0 20px}}table{{width:100%;border-collapse:collapse}}th,td{{padding:9px 0;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}}th{{width:36%;font-weight:650}}.acao{{display:block;margin-top:24px;padding:13px 16px;border-radius:6px;background:#222;color:#fff;text-align:center;text-decoration:none;font-weight:700}}footer{{margin-top:36px;padding-top:18px;border-top:1px solid #ddd;color:#666;font-size:.9rem;text-align:center}}@media(prefers-color-scheme:dark){{body{{color:#eee;background:#111}}th,td,footer{{border-color:#333}}.acao{{background:#eee;color:#111}}footer{{color:#aaa}}}}</style>
-</head><body><a class="voltar" href="/">← Buscar outros livros</a><main><h1>{esc(r["Titulo"])}</h1><p class="autor">{esc(r["Autor"])}</p><p class="preco">{esc(price(r["Preco"]))}</p><table><tbody>
+</head><body><a class="voltar" href="/">← Garimpar outros livros</a><main><h1>{esc(r["Titulo"])}</h1><p class="autor">{esc(r["Autor"])}</p><p class="preco">{esc(price(r["Preco"]))}</p><table><tbody>
 <tr><th>Título</th><td>{esc(r["Titulo"])}</td></tr><tr><th>Autor</th><td>{esc(r["Autor"])}</td></tr><tr><th>Editora</th><td>{esc(r["Editora"])}</td></tr><tr><th>Ano</th><td>{esc(r["Ano"])}</td></tr><tr><th>ISBN</th><td>{esc(r["ISBN"])}</td></tr><tr><th>Estante</th><td>{esc(r["Estante"])}</td></tr><tr><th>Idioma</th><td>{esc(r["Idioma"])}</td></tr><tr><th>Capa</th><td>{esc(r["Capa"])}</td></tr><tr><th>Páginas</th><td>{esc(r["Paginas"])}</td></tr><tr><th>Dimensões</th><td>{esc(r["Dimensoes"])}</td></tr><tr><th>Peso</th><td>{esc(r["Peso"])} g</td></tr>
 </tbody></table><a class="acao" href="{esc(wa_url)}" target="_blank" rel="noopener noreferrer nofollow">Pedir fotos detalhadas pelo WhatsApp</a></main><footer>Desde 2017 · São Paulo, SP · Sebo Menos Telas</footer></body></html>'''
 
@@ -221,6 +223,9 @@ shutil.copy2(index_template, out / "index.html")
 
 if sobre_template.exists():
     shutil.copy2(sobre_template, out / "sobre.html")
+
+if error_template.exists():
+    shutil.copy2(error_template, out / "404.html")
 
 favicon_copied = False
 
@@ -262,9 +267,23 @@ sitemap = (
     encoding="utf-8"
 )
 
+zip_path = out.parent / (out.name + ".zip")
+
+if zip_path.exists():
+    zip_path.unlink()
+
+with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
+    for p in sorted(out.rglob("*")):
+        if p.is_file():
+            z.write(p, p.relative_to(out).as_posix())
+
 print(f"Gerado: {out}")
 print(f"Livros: {len(rows)}")
 print(f"URL map: {urlmap_path}")
+print(
+    f"404: "
+    f"{'Copiado (' + str(error_template) + ')' if error_template.exists() else 'Não encontrado (ignorado)'}"
+)
 print(
     f"Favicon: "
     f"{'Copiado (' + str(favicon_template) + ')' if favicon_copied else 'Não encontrado (ignorado)'}"
@@ -275,4 +294,5 @@ print(
 )
 print(f"Sitemap: {out / 'sitemap.xml'}")
 print(f"Robots: {out / 'robots.txt'}")
+print(f"ZIP: {zip_path}")
 PY
