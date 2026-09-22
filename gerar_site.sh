@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eu
-# V7 do Sebo Menos Telas.
+# V8 do Sebo Menos Telas.
 # Uso: ./gerar_site.sh
 # Requer apenas Python 3.
 # A busca considera título, autor, editora, ISBN, ano, estante, idioma e preço.
@@ -20,7 +20,7 @@ BASE_URL="https://sebomenostelas.com.br"
 URLMAP=".urlmap.json"
 
 python3 - "$CSV" "$OUT" "$INDEX_TEMPLATE" "$SOBRE_TEMPLATE" "$FAVICON_TEMPLATE" "$LOGO_TEMPLATE" "$ERROR_TEMPLATE" "$BASE_URL" "$URLMAP" <<'PY'
-import csv, hashlib, html, json, re, shutil, sys, unicodedata, urllib.parse, zipfile
+import csv, hashlib, html, json, re, shutil, sys, unicodedata, urllib.parse
 from pathlib import Path
 
 csv_path = Path(sys.argv[1]).expanduser().resolve()
@@ -267,16 +267,6 @@ sitemap = (
     encoding="utf-8"
 )
 
-zip_path = out.parent / (out.name + ".zip")
-
-if zip_path.exists():
-    zip_path.unlink()
-
-with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
-    for p in sorted(out.rglob("*")):
-        if p.is_file():
-            z.write(p, p.relative_to(out).as_posix())
-
 print(f"Gerado: {out}")
 print(f"Livros: {len(rows)}")
 print(f"URL map: {urlmap_path}")
@@ -294,5 +284,4 @@ print(
 )
 print(f"Sitemap: {out / 'sitemap.xml'}")
 print(f"Robots: {out / 'robots.txt'}")
-print(f"ZIP: {zip_path}")
 PY
