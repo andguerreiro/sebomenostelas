@@ -159,7 +159,7 @@ for r in rows:
 <title>{esc(r["Titulo"])} — {esc(r["Autor"])} | Sebo Menos Telas</title>
 <meta name="description" content="{esc(r["Titulo"])} — {esc(r["Autor"])}, {esc(r["Editora"])}, {esc(r["Ano"])}. Exemplar usado disponível no Sebo Menos Telas.">
 <meta name="robots" content="index,follow"><link rel="canonical" href="{esc(book_url)}">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.png" type="image/png">
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Book","name":r["Titulo"],"author":{"@type":"Person","name":r["Autor"]},"publisher":{"@type":"Organization","name":r["Editora"]},"isbn":r["ISBN"] if r["ISBN"] not in {"ND",""} else None,"datePublished":r["Ano"] if r["Ano"].isdigit() else None,"inLanguage":r["Idioma"],"numberOfPages":int(r["Paginas"]) if r["Paginas"].isdigit() else None,"url":book_url},ensure_ascii=False,separators=(",",":"))}</script>
 <style>:root{{color-scheme:light dark}}*{{box-sizing:border-box}}body{{max-width:760px;margin:0 auto;padding:28px 16px 40px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#222;background:#fff;line-height:1.5}}a{{color:inherit}}.voltar{{display:inline-block;margin-bottom:24px}}h1{{margin:0 0 4px;font-size:clamp(1.5rem,6vw,2.2rem);line-height:1.2}}.autor{{margin:0 0 20px;font-weight:650}}.preco{{font-size:1.25rem;font-weight:750;margin:0 0 20px}}table{{width:100%;border-collapse:collapse}}th,td{{padding:9px 0;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}}th{{width:36%;font-weight:650}}.acao{{display:block;margin-top:24px;padding:13px 16px;border-radius:6px;background:#222;color:#fff;text-align:center;text-decoration:none;font-weight:700}}footer{{margin-top:36px;padding-top:18px;border-top:1px solid #ddd;color:#666;font-size:.9rem;text-align:center}}@media(prefers-color-scheme:dark){{body{{color:#eee;background:#111}}th,td,footer{{border-color:#333}}.acao{{background:#eee;color:#111}}footer{{color:#aaa}}}}</style>
 </head><body><a class="voltar" href="/">← Garimpar outros livros</a><main><h1>{esc(r["Titulo"])}</h1><p class="autor">{esc(r["Autor"])}</p><p class="preco">{esc(price(r["Preco"]))}</p><table><tbody>
@@ -179,7 +179,7 @@ if error_template.exists():
 
 favicon_copied = False
 if favicon_template.exists():
-    shutil.copy2(favicon_template, out / "favicon.ico")
+    shutil.copy2(favicon_template, out / "favicon.png")
     favicon_copied = True
 
 logo_copied = False
