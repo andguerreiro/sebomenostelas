@@ -1,16 +1,59 @@
 #!/usr/bin/env python3
-import csv, hashlib, html, json, re, shutil, sys, unicodedata, urllib.parse
+"""Gera o site estático do Sebo Menos Telas (V9).
+
+Uso:
+    ./gerar_site.py                      # tudo nos valores padrão
+    ./gerar_site.py --out public         # muda só a pasta de saída
+    ./gerar_site.py --help
+
+Requer apenas Python 3.
+
+A busca no index.html considera título, autor, editora, ISBN, ano, estante,
+idioma e preço (todos exportados em dados/catalogo.json).
+
+URLs são persistidas em .urlmap.json. Isso é proposital: remover, adicionar ou
+reordenar linhas do CSV não deve mudar as URLs dos livros que continuam no
+acervo. Para livros com ISBN, o ISBN é a chave estável. Sem ISBN, usa-se a
+combinação título + autor + editora + ano. O sufixo curto é um código
+determinístico. O .urlmap.json precisa estar commitado no repositório.
+"""
+import argparse
+import csv
+import hashlib
+import html
+import json
+import re
+import shutil
+import unicodedata
+import urllib.parse
 from pathlib import Path
 
-csv_path = Path(sys.argv[1]).expanduser().resolve()
-out = Path(sys.argv[2]).expanduser().resolve()
-index_template = Path(sys.argv[3]).expanduser().resolve()
-sobre_template = Path(sys.argv[4]).expanduser().resolve()
-favicon_template = Path(sys.argv[5]).expanduser().resolve()
-logo_template = Path(sys.argv[6]).expanduser().resolve()
-error_template = Path(sys.argv[7]).expanduser().resolve()
-base_url = sys.argv[8].rstrip("/")
-urlmap_path = Path(sys.argv[9]).expanduser().resolve()
+
+def parse_args():
+    ap = argparse.ArgumentParser(description="Gera o site do Sebo Menos Telas")
+    ap.add_argument("--csv", default="catalogo.csv", help="CSV do acervo")
+    ap.add_argument("--out", default="site", help="pasta de saída")
+    ap.add_argument("--index", default="index.html", help="template da home")
+    ap.add_argument("--sobre", default="sobre.html", help="template da página Sobre")
+    ap.add_argument("--favicon", default="favicon.png")
+    ap.add_argument("--logo", default="logo.png")
+    ap.add_argument("--erro", default="404.html", help="template da página 404")
+    ap.add_argument("--base-url", default="https://sebomenostelas.com.br")
+    ap.add_argument("--urlmap", default=".urlmap.json", help="mapa persistente de URLs")
+    return ap.parse_args()
+
+
+args = parse_args()
+
+csv_path = Path(args.csv).expanduser().resolve()
+out = Path(args.out).expanduser().resolve()
+index_template = Path(args.index).expanduser().resolve()
+sobre_template = Path(args.sobre).expanduser().resolve()
+favicon_template = Path(args.favicon).expanduser().resolve()
+logo_template = Path(args.logo).expanduser().resolve()
+error_template = Path(args.erro).expanduser().resolve()
+base_url = args.base_url.rstrip("/")
+urlmap_path = Path(args.urlmap).expanduser().resolve()
 
 if not csv_path.exists():
     raise SystemExit(f"CSV não encontrado: {csv_path}")
@@ -35,11 +78,14 @@ missing = [c for c in required if c not in rows[0]]
 if missing:
     raise SystemExit("Colunas ausentes no CSV: " + ", ".join(missing))
 
+
 def clean(v):
     return str(v or "").strip()
 
+
 def esc(v):
     return html.escape(str(v or ""), quote=True)
+
 
 def norm(v):
     return " ".join(
@@ -49,16 +95,19 @@ def norm(v):
         ).lower().split()
     )
 
+
 def slug_text(v):
     s = norm(v).replace("&", " e ")
     s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
     return s
 
+
 def price(v):
     try:
         return f"R$ {float(v):,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-    except:
+    except (ValueError, TypeError):
         return str(v or "")
+
 
 def stable_key(r):
     isbn = norm(r["ISBN"])
@@ -68,8 +117,10 @@ def stable_key(r):
         norm(r[c]) for c in ("Titulo", "Autor", "Editora", "Ano")
     )
 
+
 def suffix(key):
     return hashlib.sha1(key.encode("utf-8")).hexdigest()[:8]
+
 
 def make_slug(r, key):
     isbn = clean(r["ISBN"])
@@ -84,6 +135,7 @@ def make_slug(r, key):
     ]
     parts = [p for p in parts if p]
     return "-".join(parts) + "-" + suffix(key)
+
 
 if urlmap_path.exists():
     try:
