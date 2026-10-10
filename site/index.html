@@ -6,7 +6,7 @@
 <title>Sebo Menos Telas</title>
 <meta name="description" content="Venda de livros usados a partir de 10 reais e coleta de doações de ficção e infantojuvenis em São Paulo, SP. Entregas grátis na Mooca.">
 <meta name="robots" content="index,follow">
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="/favicon.png" type="image/png">
 <link rel="canonical" href="https://sebomenostelas.com.br/">
 <style>
 *{box-sizing:border-box}
@@ -57,7 +57,7 @@ footer a{color:inherit}
 </head>
 <body>
 <main>
-<img id="logo" class="logo" src="logo.png" alt="Sebo Menos Telas">
+<img id="logo" class="logo" src="/logo.png" alt="Sebo Menos Telas">
 <h1>Sebo Menos Telas</h1>
 
 <form id="busca" role="search">
@@ -74,7 +74,7 @@ footer a{color:inherit}
 <p>Desde 2017 · São Paulo, SP</p>
 <p><a href="https://wa.me/5511981350566" target="_blank" rel="noopener noreferrer nofollow">Contato</a> ·
 <a id="doacao" href="https://wa.me/5511981350566?text=Ol%C3%A1%21%20Quero%20doar%20livros%20para%20o%20Sebo%20Menos%20Telas.%0AGostaria%20de%20saber%20como%20funciona." target="_blank" rel="noopener noreferrer nofollow">Doação</a> ·
-<a href="/sobre.html">Sobre</a></p>
+<a href="/sobre">Sobre</a></p>
 </footer>
 
 <script>
@@ -144,7 +144,7 @@ footer a{color:inherit}
         `<p class="status">${l.length} livro${l.length == 1 ? "" : "s"} encontrado${l.length == 1 ? "" : "s"} para “${e(q)}”.</p>` +
         l.map(b => `
           <article class="livro">
-            <h2><a href="/livro/${e(b.slug)}.html">${e(b.titulo)}</a></h2>
+            <h2><a href="/livro/${e(b.slug)}">${e(b.titulo)}</a></h2>
             <p class="autor">${e(b.autor)}</p>
             <p>${e(b.editora)} · ${e(b.ano)} · ${e(b.estante)}</p>
             <p class="preco">${e(m(b.preco))}</p>
