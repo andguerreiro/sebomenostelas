@@ -16,6 +16,11 @@ reordenar linhas do CSV não deve mudar as URLs dos livros que continuam no
 acervo. Para livros com ISBN, o ISBN é a chave estável. Sem ISBN, usa-se a
 combinação título + autor + editora + ano. O sufixo curto é um código
 determinístico. O .urlmap.json precisa estar commitado no repositório.
+
+URLs públicas (canonical, JSON-LD e sitemap) são SEM extensão .html. Os
+arquivos continuam sendo gravados como .html no disco; o Cloudflare Pages
+serve /livro/slug a partir de /livro/slug.html e redireciona (308) a versão
+com .html para a versão sem.
 """
 import argparse
 import csv
@@ -204,7 +209,8 @@ for r in rows:
         "https://wa.me/5511981350566?text="
         + urllib.parse.quote(wa_text)
     )
-    book_url = f"{base_url}/livro/{r['_slug']}.html"
+    # URL pública SEM .html (o arquivo no disco continua com .html)
+    book_url = f"{base_url}/livro/{r['_slug']}"
 
     page = f'''<!doctype html><html lang="pt-BR"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -239,10 +245,11 @@ if logo_template.exists():
     shutil.copy2(logo_template, out / "logo.png")
     logo_copied = True
 
+# URLs públicas do sitemap: sem .html
 urls = (
-    [f"{base_url}/", f"{base_url}/sobre.html"]
+    [f"{base_url}/", f"{base_url}/sobre"]
     + [
-        f'{base_url}/livro/{r["_slug"]}.html'
+        f'{base_url}/livro/{r["_slug"]}'
         for r in rows
     ]
 )
